@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action = "combo.jsp" method="post">
+  <select name="cars">
+	<option value="현대자동차" selected>현대자동차</option>
+	<option value="기아자동차">기아자동차</option>
+	<option value="폭스바겐">폭스바겐</option>
+	<option value="혼다">혼다</option>
+	<option value="르노삼성">르노삼성</option>
+	<option value="아우디">아우디</option>
+	<option value="크라아슬러">크라아슬러</option>
+   </select>
+</form>
+</body>
+</html>

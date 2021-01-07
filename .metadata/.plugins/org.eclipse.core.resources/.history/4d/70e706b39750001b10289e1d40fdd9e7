@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public1.css">
+<style>
+form{
+	border : 2px solid pink;
+	padding : 20px;
+}
+fieldset{
+	border : 1px dotted orange;
+	margin : 20px;
+}
+</style>
+
+<script type="text/javascript">
+	//함수정의
+	function change(){
+		//html요소로 접근하기
+		vcol = document.getElementById('col');
+		
+		//접근요소에서 값 가져오기
+		var : vvalue = vcol.value;
+		
+		//가져온 값으로  pre요소의 배경색을 바꿀려고 한다.
+		vpre = document.getElementById('pr1');
+		vpre.style.backgroundColor
+	}
+</script>
+</head>
+<body>
+<form action="1.jsp" method="post" onsubmit="return false;">
+  <fieldset>
+    <legend>이메일 입력</legend>
+	이메일1<input type="text" name="email"><br>
+	이메일2<input type="email" name="email"><br>
+	<input type="submit">
+  </fieldset>
+  
+  <pre id = "pr1">
+  	pattern 속성 : 
+  		데이터의 입력형식또는 규칙을 정의한다.
+  		
+  	전화번호 정규식
+  		pattern="\d{3}-\d{4}-\d{4}"
+  </pre>
+  <fieldset>
+     <legend>전화번호 입력</legend>
+	   전화번호1-text<input type="text" name="tel"><br>
+	   전화번호2-tel<input type="tel" name="tel"><br>
+	   전화번호3-text(pattern)<input type="text" name="tel" pattern="\d{3}-\d{4}-\d{4}"><br>
+	   생년월일<input type="text" name="bir" ><br>
+	   생년월일<input type="date" name="bir" > 
+	   <input type="submit">
+  </fieldset>
+  
+  <pre>
+   	 html요소를 script에서 접급해야한다.
+   	 id를 이용한 접근
+   	 vcol = document.getElementById('col')
+   	 
+   	 접근요소에서 깂을 가져오기
+   	 cvalue=vcol.value;
+  </pre>
+  <fieldset>
+  	<legend>선택</legend>
+  	색상선택<input type="color" id="col">
+  	<input type="button" value="확인">
+  </fieldset>
+</form>
+</body>
+</html>
+<!-- onsubmit="return false;"을 통해 submit이 발생할때 아무것도 실행되지 않게끔 설정 -->
+

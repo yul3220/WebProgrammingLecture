@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 연습2</title>
+<style>
+table{
+	border : 2px solid blue;
+	margin : 20px 30px;
+	border-collapse : collapse; 
+	/*border-collapse : border때문에 두줄처럼 보이는 부분을 한줄로 보이게끔 할 수 있음
+	   기본값은 seperate이다. => 두줄처럼 보이는 것
+	*/
+	
+	/*
+	border-width : 3px;
+	border-syle : double;
+	border-color : red;
+	
+	border-top: width, style, color;
+	border-bottom : width, style, color;
+	border-left : width, style, color;
+	bordrt-right : width, style, color;
+	=> 각각줄때는 3가지의 내용이 다 내용에 들어가야한다.
+	
+	border-top-width : 2px;
+	border-top-style : solid;
+	border-top-color : red;
+	=> 각각지정해주는 경우는 하나씩 입력
+	*/
+}
+ td{
+ 	width : 100px;
+ 	height : 40px;
+ }
+ #tab2{
+	border : 2px solid green;
+	border-collaspe : seperate;
+}
+</style>
+</head>
+<body>
+<table border = "1">
+  <tr>
+  	<td colspan = "2"></td>
+  	<td colspan = "2"></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  
+  <tr>
+  	<td colspan = "4"></td>
+  	<td colspan = "2"></td>
+  </tr>
+  
+  <tr>
+  	<td colspan = "4"></td>
+  	<td colspan = "2" rowspan = "2"></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+</table>
+
+<table id ="tab2"border = "1">
+  <tr>
+  	<td colspan = "2"></td>
+  	<td colspan = "2"></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  
+  <tr>
+  	<td colspan = "4"></td>
+  	<td colspan = "2"></td>
+  </tr>
+  
+  <tr>
+  	<td colspan = "4"></td>
+  	<td colspan = "2" rowspan = "2"></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+</table>
+</body>
+</html>

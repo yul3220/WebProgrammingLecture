@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="text.jsp" method="post">
+	<textarea  rows="10" cols="50" name="area"></textarea><br>
+	<input type ="submit" value = "확인">
+	<!-- 여러줄로 입력하고 싶을때는 textarea사용 -->
+</form>
+</body>
+</html>

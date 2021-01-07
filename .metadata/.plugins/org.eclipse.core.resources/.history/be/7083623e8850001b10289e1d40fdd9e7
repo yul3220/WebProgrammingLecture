@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<
+</head>
+<body>
+<form action = "combo.jsp" method="post">
+  <select>
+	<option value="현대자동차" selected>현대자동차</option>
+	<option value="기아자동차">기아자동차</option>
+	<option value="폭스바겐">폭스바겐</option>
+	<option value="혼다">혼다</option>
+	<option value="르노삼성">르노삼성</option>
+	<option value="아우디">아우디</option>
+	<option value="크라이슬러">크라이슬러</option>
+   </select>
+</form>
+
+<pre>
+여러개를 동시에 선택
+</pre>
+<form action = "combo.jsp" method="post">
+  <select multiple="multiple" size="5">
+	<option value="현대자동차">현대자동차</option>
+	<option value="기아자동차">기아자동차</option>
+	<option value="폭스바겐" selected>폭스바겐</option>
+	<option value="혼다">혼다</option>
+	<option value="르노삼성" selected>르노삼성</option>
+	<option value="아우디">아우디</option>
+	<option value="크라이슬러">크라이슬러</option>
+   </select>
+</form>
+</body>
+</html>

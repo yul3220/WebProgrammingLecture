@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+pre{
+	background-color : #F9D8FF;
+	font-size : 8px;
+}

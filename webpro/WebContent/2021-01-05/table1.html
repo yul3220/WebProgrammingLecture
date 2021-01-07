@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  table{
+  	/*margin-left : 10%;
+  	margin-top : 10%;*/
+  	margin : 30px 50px; 
+  	border-width : 3px;
+  	border-style : solid; /* solid, double, dotted, dashed, insen, outset*/
+  	border-color : red;
+  	/*20px과 20%는 다름 => 전제화면을 100%로봐서 20%띄움
+  	 margin을 사용하면 상->우->하->좌 순서대로 지정한 만큼 띄움
+  	 두개를 작성하면 앞에꺼가 위아래, 뒤에꺼가 좌우
+  	 4개를 작성하면 그대로 상 우 하 좌 순서대로 그만큼 지정됨 */
+  }
+ 
+  #tab2{
+  	border-width : 3px;
+  	border-style : double; 
+  	border-color : blue;
+  	
+  	border : 3px solid green;
+  	border-left : 2px double blue;
+  	border-right : 1px dotted green;
+  }
+  
+  th{
+  	width : 300px;
+  	height : 50px;
+  	background : black;
+  	color : white;
+  	font-size : 1.5em;
+  }
+  td{
+   	width : 200px;
+   	height : 40px;
+   	text-align : center;
+  }
+  .th2{
+  	background : lightblue;
+  }
+  
+  
+  /* 스타일은 위에서부터 시작됨 / 따라서 th의 길이가 td랑 다르면 td가 th의 길이를 따라감 */
+</style>
+</head>
+<body>
+  <table border="1">
+  	<tr>
+  		<th>이름</th>
+  		<th>주소</th>
+  		<!-- th는 자동으로 가운데 정렬이 됨 -->
+  	</tr>
+  	
+  	<tr>
+  	 	<td>홍길동</td>
+  		<td>대전</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>개나리</td>
+  		<td>서울</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>진달래</td>
+  		<td>부산</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>무궁화</td>
+  		<td>대구</td>
+  	</tr>
+  </table>
+  
+    <table id = tab2 border="1">
+  	<tr>
+  		<th class="th2">이름</th>
+  		<th class="th2">주소</th>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>홍길동</td>
+  		<td>대전</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>개나리</td>
+  		<td>서울</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>진달래</td>
+  		<td>부산</td>
+  	</tr>
+  	
+  	<tr>
+  	 	<td>무궁화</td>
+  		<td>대구</td>
+  	</tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- post를 쓰는경우
+	- 보낼 데이터의 양의 많거나
+	- 로그인할때 아이디와 비밀번호가 보이면 안되기때문에 post 
+	- 데이터를 숨겨서 헤더에 가져간다. 
+-->
+<!-- 
+input type
+=> text, password, radio, checkbox, file, image, hidden, submit, reset,  -->
+</body>
+</html>
