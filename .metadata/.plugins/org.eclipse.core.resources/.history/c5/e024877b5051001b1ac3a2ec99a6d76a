@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+a:link{/*한번도 방문하지 않은 사이트*/
+	color : red;
+	text-decoration : none;
+}
+a:active{/**/
+	color : green;
+}
+a:hover{/*마우스 올려놨을때*/
+	color : blue;
+	text-decoration : none;
+}
+a:active{/*마우스로 클릭하는 순간*/
+	color : black;
+	font-size : 1.2em;
+}
+p:hover{
+	background : Lime;
+}
+table{
+	margin : 20px;
+}
+#tab1{
+	border : 2px solid blue;
+	border-collapse : collapse;
+}
+#tab1 td{
+	width : 150px;
+	height : 40px;
+}
+#tab1 .t1{
+/*tab1안에 t1를선택하게끔, tab뒤에 한칸 띄우기, 여러개를 동시에 줄때는 클래스를 사용*/
+	background : lightgray;
+}
+#tab2{
+	border : 5px inset green;
+	border-spacing : 10px;
+}
+#tab2 td{
+	width : 100px;
+	height : 50px;
+}
+#tab2 tr:nth-child(even){
+/*tab2의 짝수번째 tr만 선택, 앞의 tab2를 제거하면 테이블두개다에 적용됨*/
+	background : lightgreen;
+}
+#tab3{
+	border : 4px double red;
+}
+#tab3 td{
+	width : 120px;
+	height : 30px;
+}
+#tab3 td:nth-child(2n-1){
+/*td:nth-child(odd)도 가능*/
+	background: lightblue;
+}
+</style>
+</head>
+<body>
+<pre>
+의사클래스
+
+상태나 구조에 의해서 선택이 이루어진다.
+상태 : :link 	:visited	:hover	:active
+
+a:link{/*한번도 방문하지 않은 사이트*/
+	color : red;
+	text-decoration : none;
+}
+a:active{/**/
+	color : green;
+}
+a:hover{/*마우스 올려놨을때*/
+	color : blue;
+	text-decoration : none;
+}
+a:active{/*마우스로 클릭하는 순간*/
+	color : black;
+	font-size : 1.2em;
+}
+p:hover{
+	background : Lime;
+}
+</pre>
+
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.daum.net">daum</a>
+<a href="http://www.w3cschool.com">w3cschool</a>
+<a href="htpp://apche.org">apache</a>
+
+<p>무궁화 꽃이 피었습니다.</p>
+<pre>
+구조에 의한 의사코드
+td : nth-child(3) td:nth-child(even)=>짝수
+td : nth-child(odd)=>홀수 tr:nth-child(2m)=>2의 배수에만 해당
+</pre>
+<pre>
+#tab1{
+	border : 2px solid blue;
+	border-collapse : collapse;
+}
+#tab1 td{
+	width : 150px;
+	height : 40px;
+}
+#tab1 .t1{
+/*tab1안에 t1를선택하게끔, tab뒤에 한칸 띄우기, 여러개를 동시에 줄때는 클래스를 사용*/
+	background : lightgray;
+}
+</pre>
+
+</pre>
+<table border="1" id="tab1">
+  <tr class ="t1">
+    <td id = "d1"></td>
+    <td id = "d2"></td>
+    <td id = "d3"></td>
+    <td id = "d4"></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr class ="t1">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<pre>
+#tab2{
+	border : 5px inset green;
+	border-spacing : 10px;
+}
+#tab2 td{
+	width : 100px;
+	height : 50px;
+}
+#tab2 tr:nth-child(even){
+/*tab2의 짝수번째 tr만 선택, 앞의 tab2를 제거하면 테이블두개다에 적용됨*/
+	background : lightgreen;
+}
+</pre>
+<table border="1" id="tab2">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<pre>
+#tab3{
+	border : 4px double red;
+}
+#tab3 td{
+	width : 120px;
+	height : 30px;
+}
+#tab3 <span>td:nth-child(2n-1)</span>{
+/*td:nth-child(odd)도 가능*/
+	background: lightblue;
+}
+</pre>
+<table border="1" id="tab3">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

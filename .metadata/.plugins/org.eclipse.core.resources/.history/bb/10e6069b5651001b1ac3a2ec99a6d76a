@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+div{
+	width : 200px;
+	height : 150px;
+	border : 1px double orange;
+	margin : 10px;
+	/*div는 블럭요소*/
+	display : inline;
+}
+</style>
+</head>
+<body>
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+
+</body>
+</html>

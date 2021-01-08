@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	width : 100%;
+	heigth : 100px;
+}
+</style>
+</head>
+<body>
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+</body>
+</html>

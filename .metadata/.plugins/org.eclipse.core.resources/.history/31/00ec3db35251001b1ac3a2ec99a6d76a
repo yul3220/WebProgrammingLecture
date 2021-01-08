@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+p{
+	font-size : 1.5em;
+}
+p:hover{
+	color : red;
+}
+p:active{
+	background : pink;
+}
+p[title]{/*1,2*/
+	background : crimson;
+}
+p[title=무궁화]{/*1*/
+	color : white;
+}
+p[class=pp]{/*1,3*/
+	font-weight : bold;
+}
+//p.pp => .사이로 떨어뜨리면 안됨
+</style>
+</head>
+<body>
+<p title="무궁화" class = "pp" >무궁화 꽃이 피었습니다.</p>
+<p title="함박눈">함박눈이 펑펑 내려옵니다.</p>
+<p class = "pp">온 세상이 하얗게 변합니다.</p>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+div{
+	width : 200px;
+	height : 150px;
+	border : 1px double orange;
+	margin : 10px;
+	float : left;
+	/*div는 블럭요소이기 때문에 세로로 배치됨, 이걸을 해결하기위해 float : left사용*/
+}
+</style>
+</head>
+<body>
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+  		<li>list-style-type : disk</li>
+  		<li>아메리카노</li>
+  		<li>카페라떼</li>
+  		<li>카푸치노</li>
+	</ul>
+</div>
+</body>
+</html>

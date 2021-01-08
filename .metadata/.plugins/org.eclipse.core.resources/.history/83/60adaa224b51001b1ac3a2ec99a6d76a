@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+a:link{/*한번도 방문하지 않은 사이트*/
+	color : red;
+	text-decoration : none;
+}
+a:active{/**/
+	color : green;
+}
+a:hover{/*마우스 올려놨을때*/
+	color : blue;
+	text-decoration : none;
+}
+a:active{/*마우스로 클릭하는 순간*/
+	color : black;
+	font-size : 1.2em;
+}
+p:hover{
+	background : Lime;
+}
+</style>
+</head>
+<body>
+<pre>
+의사클래스
+
+상태나 구조에 의해서 선택이 이루어진다.
+상태 : :link 	:visited	:hover	:active
+</pre>
+
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.daum.net">daum</a>
+<a href="http://www.w3cschool.com">w3cschool</a>
+<a href="htpp://apche.org">apache</a>
+
+<p>무궁화 꽃이 피었습니다.</p>
+</body>
+</html>

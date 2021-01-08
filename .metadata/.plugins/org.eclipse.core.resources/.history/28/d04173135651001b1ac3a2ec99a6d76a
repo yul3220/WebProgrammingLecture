@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+</head>
+<body>
+<ul>
+  <li>list-style-type : disk</li>
+  <li></li>
+  <li></li>
+</ul>
+</body>
+</html>
