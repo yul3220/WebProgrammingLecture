@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ul{
+	border : 2px solid red;
+	border-left : none;
+	border-right : none;
+	list-style-type : none;
+	padding : 20px;
+}
+ul li{
+	/*border : 1px solid blue;*/
+	display : inline;
+	padding : 10px;
+	margin : 20px;
+	/* letter-spacing : 15px; */
+	/*letter-spacing : 글자 간격 => 안에 a태크가 존재하면 a태그에다가 줌*/
+}
+ul li a{
+	letter-spacing : 15px;
+	text-decoration: none;/*밑줄을 없애는 작업*/
+}
+ul li a:link{
+	
+}
+ul li a:visited{
+	
+}
+ul li a:hover{/*마우스를 올려놓을때*/
+	background: yellow;
+	text-decoration: underl;
+}
+ul li a:active{
+	
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="">아메리카노</a></li>
+  <li><a href="">카페라떼</a></li>
+  <li><a href="">카푸치노</a></li>
+  <li><a href="">에스프레소</a></li>
+</ul>
+</body>
+</html>

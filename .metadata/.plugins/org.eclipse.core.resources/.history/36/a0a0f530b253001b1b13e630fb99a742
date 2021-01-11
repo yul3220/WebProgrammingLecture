@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+</head>
+<body>
+<h3>box-sizing : border-box</h3>
+<div>
+  <div class="one"></div>
+  <div class="one"></div>
+</div>
+
+<h3>box-sizing : content-box</h3>
+<div>
+  <div class="one"></div>
+  <div class="one"></div>
+</div>
+
+</body>
+</html>

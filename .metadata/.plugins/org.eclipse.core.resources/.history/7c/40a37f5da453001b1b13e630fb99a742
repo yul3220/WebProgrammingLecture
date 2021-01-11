@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+p{
+	font-size : 1.5em;
+}
+#p1{
+	font-family : serif;
+}
+#p2{
+	font-family : sans-serif;
+}
+#p3{
+	font-family : monospace;
+}
+#p4{
+	font-family : fantasy;
+}
+#p5{
+	font : 돋움체;
+}
+</style>
+</head>
+<body>
+<p id="p1"> Merry Christmas!! Happy New Year~ 해피 뉴 이어~</p>
+<p id="p2"> Merry Christmas!! Happy New Year~ 해피 뉴 이어~</p>
+
+<p id="p3"> Merry Christmas!! Happy New Year~ 해피 뉴 이어~</p>
+<p id="p4"> Merry Christmas!! Happy New Year~ 해피 뉴 이어~</p>
+<p id="p5"> Merry Christmas!! Happy New Year~ 해피 뉴 이어~</p>
+
+</body>
+</html>

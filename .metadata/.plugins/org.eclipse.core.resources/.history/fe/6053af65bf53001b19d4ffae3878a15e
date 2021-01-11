@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	width : 100px;
+	height : 50px;
+	background : yellow;
+	padding : 10px;
+	margin : 20px;
+}
+div{
+	display : none;
+}
+</style>
+<script>
+  function proc1(){
+	//확인을 누르면 div가 사라지고 
+  }
+</script>
+</head>
+<body>
+  <div></div>
+  <input type="button" value="확인" onclick="proc1()">
+</body>
+</html>
+<!-- onclick(클릭)을 하면 자바스크립트를 통해 함수를 수행하게끔홤 /
+     script에는 반환 타입이 없음(void, int등 ) -->

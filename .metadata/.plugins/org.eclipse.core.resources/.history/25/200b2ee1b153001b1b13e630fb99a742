@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	margin : 20px;
+	padding : 20px;
+	border : 20px solid lightgray;
+}
+</style>
+</head>
+<body>
+<div id="d1">
+   <p>content-box</p>
+</div>
+<div id="d2">
+	<p>border-box</p>
+</div>
+</body>
+</html>
