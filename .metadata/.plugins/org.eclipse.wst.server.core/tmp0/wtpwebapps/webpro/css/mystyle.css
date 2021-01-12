@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+header, nav, section, aside, footer{
+	box-sizing : border-box;
+	border : 1px dotted green;
+	border-radius : 20px;
+	margin : 1px;
+	padding : 5px;
+}
+header{
+	border-radius : 25px;
+	border-color : blue;
+}
+header h1{
+	
+}
+header img{
+	
+}
+nav{
+	
+}
+nav ul{
+	
+}
+nav ul li{
+	
+}
+nav ul li a{
+	
+}
+section{
+	
+}
+section article{
+	
+}
+section article iframe{
+	width : 100%;
+	height : 100%;
+	border : none;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div{
+	width : 100px;
+	height : 100px;
+	margin : 5px;
+	border : 1px solid orange;
+	position : absolute;
+}
+#d1{
+	background : blue;
+	top : 100px;
+	left : 100px;
+	z-index : 10;
+}
+#d2{
+	background : yellow;
+	top : 130px;
+	left : 130px;
+	z-index : 11;
+}
+#d3{
+	background : red;
+	top : 160px;
+	left : 160px;
+}
+hr{
+	position : absolute;
+	top : 270px;
+	left : 10px;
+	width : 100%;
+}
+</style>
+</head>
+<body>
+<pre>
+div{ position : absolute; }
+#d1{ z-index : 10; background : blue;}
+#d2{ z-index : 11; background : yellow;}
+</pre>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<hr color="red">
+
+</body>
+</html>

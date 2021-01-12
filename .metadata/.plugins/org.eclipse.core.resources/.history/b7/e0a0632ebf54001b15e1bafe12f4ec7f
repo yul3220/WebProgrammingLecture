@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+html, body{
+	margin : 0;
+	padding : 0;
+	height : 100%;
+	width : 100%;
+	box-sizing : border-box;
+}
+header{
+	background : yellow;
+	text-align : center;
+	height : 150px;
+	border-radius : 20px;
+}
+section #left{
+	width : calc(28% - 1%);
+	background : #e29999;
+	float : left;
+	height : 500px;
+	margin : 10px;
+	padding : 5px;
+	border-radius : 20px;
+}
+section #left div{
+	text-align : center;
+}
+section #right{
+	width : calc(66% - 1%);
+	float : right;
+	height : 500px;
+	margin: 10px;
+	border-radius : 20px;
+	padding : 5px;
+	background : #99e2e2;
+}
+section #right div{
+	border : 3px dotted green;
+	margin : 5px auto;
+	width : 100%;
+	height : calc(90% / 2);
+	border-radius : 20px;
+}
+footer{
+	background : green;
+	text-align : center;
+	clear : both;
+	border-radius : 20px;
+	height : 50px;
+}
+section #left a:link{
+	color : #ffffff;
+}
+section #left a:visited{
+	color : yellow;
+}
+section #left a:hover{
+	color : #4762fe;
+	font-size : 1.2em;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>MY Blog Page</h1>
+<p>시멘틱 태그로 만들어진 페이지입니다.</p>
+</header>
+
+<section>
+  <div id="left">
+    <h2>Links</h2>
+	<ul>
+	   <li><a href="https://www.w3schools.com/">w3schools</a></li>
+	   <li><a href="http://www.naver.com">Naver</a></li>
+	   <li><a href="http://www.daum.net">Daum</a></li>
+	</ul>
+	<div>
+	    <img src="../images/spongebob.png" alt="스펀지밥" width="150px">
+	    <p>스펀지밥</p>
+	   </div>
+  </div>
+  
+  <div id="right">
+	<div>
+		<h3>Sematic Tags</h3>
+		<p> 
+		시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을
+		명확하게 알려주는 요소이다. 레이아웃을 만들때 쓰는 것, 의미가 있는 요소라면
+		div보다는 시멘틱 태그를 사용해준다.
+		</p>
+	</div>
+	
+	<div>
+		<h3>div와 span</h3>
+		<p>
+		div는 'divide'의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 
+		태그이다.span요소는 인라인 요소로서 텍스를 위한 컨테이너로 사용할 수 있다.
+		</p>
+	</div>
+  </div>
+</section>
+
+<footer>
+<p>Copyright (c)2021 JIN</p>
+</footer>
+</body>
+</html>

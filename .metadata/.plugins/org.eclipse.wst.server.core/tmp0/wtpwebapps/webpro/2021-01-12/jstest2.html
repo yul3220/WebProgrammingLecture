@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+ div{
+ 	width : 100px;
+ 	height : 150px;
+ 	border : 1px solid blue;
+ 	margin : 5px;
+ 	padding : 5px;	
+ }
+</style>
+<script>
+	window.onload = function(){//window가 로드 됬을때 이 내용을 실행해라
+		var now = new Date();
+		
+		//html요소에 접근
+		aa = document.getElementsByTagName('div')[0];
+		aa = document.getElementById('d1');
+		//스크립트가 실행되고 body가 실행되기 때문에 에러가 난다.
+		
+		
+		//해당요소에 출력
+		aa.innerHTML = now.toLocaleString(); //div에 실행해라
+		//document.write(now.toLocaleString()); // document에 실행해라
+		/*윈도우에 뿌려지는 다큐멘트는 하나이다.
+		  onload에 div가 실행되면서 document가  생김 
+		  => 그 이후에 다시 document를 만들어서 write를 하게 되면div가 없어짐*/
+	}
+</script>
+</head>
+<body>
+  <div id="d1"></div>
+  <!--  <script>
+	var now = new Date();
+	
+	//html요소에 접근
+	aa = document.getElementsByTagName('div')[0];
+	aa = document.getElementById('d1');
+	
+	//해당요소에 출력
+	aa.innerHTML = now.toLocaleString();
+  </script>-->
+</body>
+</html>

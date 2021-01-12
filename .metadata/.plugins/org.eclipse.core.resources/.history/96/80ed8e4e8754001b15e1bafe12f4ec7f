@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+  function proc1(){
+	 var now = new Date();//var은 적어도 되고 안적어도 된다. 
+	 
+	 document.write(now.toLocaleString());
+  }
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+</body>
+</html>
