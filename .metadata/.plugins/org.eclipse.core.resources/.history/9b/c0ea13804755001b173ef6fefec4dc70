@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset = "UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../css/public.css"><!--외부스타일/실행문장-->
+ </head>
+ 
+ <body>
+ <pre>
+	p태그 : 블럭요소, 자동 줄바꿈, 앞뒤에 여백줄이 생김
+	&lt;br&gt; : 강제 줄바꿈
+	
+	외부스타일 : 별도의 css파일로 저장 하고 각각의 html파일에서 링크로 연결한다
+	&lt;link rel = "stylesheet" href="../css/public.css"&gt;
+	<!--pre에서는 <>는 실행문장이므로 &lt; &gt;를통해 설명글로 표시 => 실제로 사이트에서는 <>로 표시-->
+	<!--<link> 태그의 rel 속성은 현재 문서와 외부 리소스 사이의 연관 관계를 명시합니다.
+	    rel 속성은 <link> 요소에 반드시 명시되어야 하는 필수 속성입니다.-->
+ </pre>
+   <h1>p태그를 이용</h1>
+	<p>Welcome to the Web Programing</p>
+	<p>Welcome to the Web Programing</p>
+	<p>Welcome to the Web Programing</p>
+   <h1>br태그를 이용한 줄바꿈</h1>
+	Welcome to the Web Programing<br>
+	Welcome to the Web Programing<br>
+	Welcome to the Web Programing<br>
+	Welcome to the Web Programing
+ </body>
+</html>

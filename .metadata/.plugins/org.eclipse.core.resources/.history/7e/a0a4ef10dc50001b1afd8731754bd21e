@@ -1,5 +1,0 @@
-@CHARSET "UTF-8";
-pre{
-	background-color : #BFF5F3;
-	font-size : 14px;
-}

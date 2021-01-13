@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset = "UTF-8">
+  <title></title>
+  <link rel = "stylesheet" href="../css/public.css"><!--외부스타일/실행문장-->
+  <style>
+	img{
+		width : 50px;
+		height : 50px;
+	}
+	a:link{
+		color : red;
+		text-decoration : none;
+		<!-- text-decoration : none => 밑줄이 없어짐  / 
+		underline이 기본  / overline도 가능(밑줄이 위로 감) / line-through => 밑줄이 중간으로 지나감 -->
+	}
+	a:visited{
+		color : green;
+	}
+	a:hover{
+		color : blue;
+		font-size : 1.2em;
+		background : lightgray;
+	}
+	a:active{
+		color : black;
+	}
+	<!-- a:link : 방문 전 링크 상태이다. / a:visited : 방문 후 링크 상태이다.
+		a:hover : 마우스 오버 했을 때 링크 상태이다. / a:active : 클릭 했을 때 링크 상태이다. -->
+  </style>
+ </head>
+ 
+ <body>
+ <pre>
+  * a : 하이퍼링크
+    페이지 이동을 수행
+    속성  
+    - href = "이동할 페이지 이름" 
+    - target : 새로운 페이지를 현재 창(_self)이나 새로운 창(_blank)으로 이동
+    상태 
+    :link (처음 만들어진 상태)
+    :visited(한번 방문한 상태)
+    :hover(마우스 올려놓을때)
+    :active(마우스 누르는 순간)
+ </pre>
+   <ul>
+    <li>
+    	<a href="아메리카노.html">
+    		<img src ="../images/아메리카노.jpg" alt ="">
+    	</a>
+    </li>
+	<li>
+    	<a href="카페라떼.html">
+    		<img src ="../images/카페라떼.jpg" alt ="">
+    	</a>
+    </li>
+    <li>
+    	<a href="카푸치노.html">
+    		<img src ="../images/카푸치노.jpg" alt ="">
+    	</a>
+    </li>
+  </ul>
+  
+  <ol>
+  	<li><em>아메리카노</em></li>
+  	<li>카페라떼</li>
+  	<li>카푸치노</li>
+  </ol>
+  
+  <ol>
+  	<li><a target = "_blank" href="아메리카노.html">아메리카노</a></li>
+  	<li><a target = "_blank" href="카페라떼.html">카페라떼</a></li>
+  	<li><a target = "_blank" href="카푸치노.html">카푸치노</a></li>
+  	<li><a href ="에스프레소.html">에스프레소</a></li>
+  	<!-- target = "_blank" => href에 저장되어 있는 내용이 같은 창이 아닌 다른 창에 뜰수 있도록 함
+  	      기본형은 _self이다. 설정을 하지 않으면 _self가 기본형이다.  -->
+  	
+  </ol>
+  
+  <dl>
+  	<dt><a href="아메리카노.html">아메리카노</a></dt>
+  	<dd><p>에스프레소에 물을 <sup>추가</sup>한 것입니다.</p></dd>
+  	
+  	<dt><a href="카페라떼.html">카페라떼</a></dt>
+  	<dd><p>에스프레소에 <sub>우유</sub>를 넣은 커피입니다.</p> </dd>
+  	
+  	<dt><a href="카푸치노.html">카푸치노</a></dt>
+  	<dd><p>커피 위에 <sup>우유거품</sup>을 얹은 커피입니다.</p></dd>
+  	
+  </dl>
+ </body>
+</html>

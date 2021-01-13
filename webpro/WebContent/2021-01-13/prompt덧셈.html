@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	window.onload = function(){
+		x = parseInt(prompt("정수1입력"));
+		y = parseInt(prompt("정수2입력"));
+		
+		//div요소에 접근
+		tag = document.querySelector('div');
+		
+		//출력모양 23 + 34 = 57
+		res = x + " + " + y + " = " + (x+y);
+		tag.innerHTML = res;
+		
+	}
+	//window.onload가 필요한 경우 : 바디를 먼저실행해놓고 스크립트를 후에 실행하기 위해서 필요
+	//div요소에 접근 
+	//onload전에는 body태그에 div요소에 대한 정의가 없기 때문에 접근할 수 없음
+</script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
