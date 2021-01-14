@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/check.png">
+<style>
+</style>
+
+<script>
+    function proc1(a){
+        var x = document.querySelector('#x');
+        var y = document.querySelector('#y');
+       
+        var x1 = parseInt(x.value);
+        var y1 = parseInt(y.value);
+        
+        switch(a){
+            case "+" :
+                k = sum(x1, y1); 
+                break;
+            case "-" :
+            	k = sub(x1, y1);
+                break;
+            case "*" :
+            	k = multi(x1, y1);
+                break;
+            case "/" :
+            	k = divide(x1, y1);
+                break;
+        }
+        
+        //출력
+        result = document.querySelector('#result1');
+        result.innerHTML = k;
+    }
+    
+    function sum(x, y){
+        var res = x + y;
+        return res;
+    }
+    function sub(x, y){
+        var res = x - y;
+        return res;
+    }
+    function multi(x, y){
+        var res = x * y;
+        return res;
+    }
+    function divide(x, y){
+        var res = x / y;
+        return res;
+    }
+</script>
+</head>
+<body>
+
+<div class="box">
+    
+    <br><br>
+    입력 1<input type="text" id="x"><br>
+    입력 2<input type="text" id="y"><br>
+    <br>
+    <input type="button" value="+" onclick="proc1('+')">
+    <input type="button" value="-" onclick="proc1('-')">
+    <input type="button" value="*" onclick="proc1('*')">
+    <input type="button" value="/" onclick="proc1('/')">
+    <!-- onclick안에 바깥이 ""이면 안에는 '', 바깥이 ''이면 안은 " "-->
+    
+    <div id="result1"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+    function proc1(){
+        hap = 0;
+        str = "";
+        
+        while(true){
+            //입력
+            a = parseInt(prompt("숫자를 입력하세요.(0을 입력하면 종료됩니다.)"));
+            
+            //비교 - break
+            if(a == 0){ break; }
+    
+            //hap변수에 더하기
+            hap += a;
+            
+            //입력한 수를 나열하기
+            str += a + " ";
+        }
+        
+        //출력 모양
+        res = `입력한 수 : ${str} <br>`;
+        res += `합 : ${hap}`;
+        
+        //출력
+        out = document.querySelector('#result1');
+        out.innerHTML = res;
+    }
+    
+    function proc2(){
+        hap = 0;
+        str = "";
+        
+        for(i = 1; i<=10 ; i++){
+            for(k=1; k<=10; k++){
+                if((i+k) % 3 != 0){
+                    continue;
+                }
+                hap += i+k;
+                str += `${i} ${k} = ${i+k}<br>`
+            }
+        }
+        
+        //출력모양
+        res = "3의 배수가 되는 i+k <br>";
+        res += str;
+        res += "전체 합 : " + hap;
+        
+        //출력
+        out = document.querySelector('#result2');
+        out.innerHTML = res;
+    }
+    
+</script>
+</head>
+<body>
+<div class="box">
+    사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 
+    값을 출력하는 프로그램을 작성하시오.
+    <br><br>
+    <input type="button" value="확인" onclick="proc1()">
+
+    <div id="result1"></div>
+</div>
+
+<div class="box">
+    다중 for문을 이용해서 1~10까지 중 i와 k의 더한 합이 3의 배수일때만 출력
+    continue를 이용
+    <br><br>
+    <input type="button" value="확인" onclick="proc2()">
+
+    <div id="result2"></div>
+</div>
+
+</body>
+</html>

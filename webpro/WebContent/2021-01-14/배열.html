@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+</style>
+
+<script>
+    //fruits = ["apple", "banana", "peach"];=> 전역변수처럼 사용할수 있음
+    //var를 붙이면 지역변수, 안붙이면 전역변수
+    
+    function proc1(){
+        fruits1 = ["사과", "바나나", "복숭아","참외"];
+ 
+        result = document.querySelector('#result1');
+        print(fruits1);
+    }
+    
+    function print(fruits){
+    	res ="";
+    	
+        for(i = 0; i< fruits.length; i++){
+        	res += fruits[i] + " ";
+        }
+        result.innerHTML = res;
+    }
+    
+    function proc2(){
+    	fruits2 = new Array("사과", "바나나", "복숭아","참외");
+    	result = document.querySelector('#result2');
+    	print(fruits2);
+    }
+    
+	function proc3(){
+		  fruits3 = new Array();
+	  	  fruits3[0] = "사과";
+	  	  fruits3[1] = "바나나";
+	  	  fruits3[2] = "복숭아";
+	  	  fruits3[3] = 100;
+	  	  result = document.querySelector('#result3');
+	  	  print(fruits3);
+    }
+</script>
+</head>
+<body>
+
+<div class="box">
+  	  배열생성1 - 리터럴로 생성<br>
+  	  fruits = ["사과", "바나나", "복숭아","참외"];
+    <br><br>
+    <input type="button" value="확인" onclick="proc1()">
+
+    <div id="result1"></div>
+</div>
+
+<div class="box">
+  	  배열생성2 - 생성자로 생성<br>
+  	  fruits = new Array("사과", "바나나", "복숭아","참외");
+    <br><br>
+    <input type="button" value="확인" onclick="proc2()">
+
+    <div id="result2"></div>
+</div>
+
+<div class="box">
+  	  배열생성3 - 생성자로 생성<br>
+  	  fruits = new Array();
+  	  fruits[0] = "사과";
+  	  fruits[1] = "바나나";
+  	  fruits[2] = "복숭아";
+  	  fruits[3] = 100;
+    <br><br>
+    <input type="button" value="확인" onclick="proc3()">
+
+    <div id="result3"></div>
+</div>
+
+</body>
+</html>
