@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+    function proc1(){
+        str = "";
+        
+        while(true){
+            //수를 입력
+            su = prompt("수를 입력");// *,-,/를할때는 parseInt를 안해도 상관이 없음
+            
+            if(su == "" || su == null) continue; //continue를 통해 다시 수를 입력받는 창으로 올라감
+            
+            for(i=1; i<=9; i++){
+                str += `${su} * ${i} = ${su*i}<br>`;
+            }
+            
+            result = document.querySelector('#result1');
+            result.innerHTML = str;
+            
+            //계속 여부를 판단
+            a = confirm("계속하시겟습니까??")
+            
+            if(!a) break;
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="box">
+    확인버튼 클릭하면 수를 입력(prompt)
+    입력한 수에 대한 구구단 출력
+    계속 여부 체크
+    <br><br>
+    <input type="button" value="확인" onclick="proc1()">
+
+    <div id="result1"></div>
+</div>
+</body>
+</html>

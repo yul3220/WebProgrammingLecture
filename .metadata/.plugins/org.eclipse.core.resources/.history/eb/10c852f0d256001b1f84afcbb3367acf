@@ -2,23 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>circle객체</title>
 <link rel="stylesheet" href="../css/public.css">
-
 <style>
 </style>
-
 <script>
+    var Circle={
+        //속성
+        radius,
+        //메소드
+        
+    };
+    
+    function proc1(){
+        
+    }
+    function proc2(){
+        
+    }
+    
 </script>
 </head>
 <body>
-
 <div class="box">
-    
     <br><br>
     <input type="button" value="확인" onclick="proc1()">
+    <input type="button" value="변경" onclick="proc2()">
 
     <div id="result1"></div>
+    <div id="result2"></div>
 </div>
 </body>
 </html>

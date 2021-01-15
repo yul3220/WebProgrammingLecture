@@ -4,6 +4,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+/*main------------------------------------------------------------------*/
 header{
     padding : 10px;
     text-align: center;
@@ -16,8 +17,7 @@ header div{
 }
 header img{
 	vertical-align: middle;
-    height : 80px;
-    width : 100px;
+    width : 90px;
 }
 header h2 {
     display: inline-block;
@@ -63,9 +63,9 @@ section{
 }
 .left li{
     list-style-type: none;
-    padding : 5px 15px;
+    padding : 10px 10px;;
     background : #525d76;
-    height: 40px;
+    height: 45px;
     border-bottom : 1px solid black;
 }
 .left li a{
@@ -96,25 +96,110 @@ footer{
     padding : 10px 0px;
     text-align : center
 }
-/*main------------------------------------------------------------------*/
+/*computer, clothing, music, sport, furniture, food*/
 .box{
-    height: 100%;
-}
-.box div{
     width : calc((99% - 10px) / 3);
     float : left;
     border : 1px solid lightgray;
     padding : 20px;
     margin-right: 5px;
-}
-.box div:last-of-type{
-    margin-right : 0px;
+    height : 780px;
 }
 .box a img{
     width : 150px;
-    height : 150px;
 }
 .box input[type="button"]{
     margin : 20px 10px;
 }
-/*공통으로 사용되는 스타일 정의 => main에서 iframe부분빼고 거의 다 정의*/
+.box div:last-of-type{
+    margin-right : 0px;
+}
+/*music*/
+.music audio{
+    display : block;
+    width : 100%;
+    margin : 20px auto;
+}
+/*movie*/
+.movie a img{
+    width : 200px;
+}
+/*shopcart*/
+#shopcart{
+    margin : auto;
+    margin-top : 20%;
+    text-align: center;
+}
+#shopcart table{
+    border : 1px solid black;
+    border-collapse: collapse;
+    width : 70%;
+    margin : 30px auto;
+}
+#shopcart table tr{
+    width : 100%;
+}
+#shopcart table th{
+   height : 30px;
+}
+#shopcart table td{
+    height : 50px;
+    width: 25%;
+}
+#shopcart input[type="number"]{
+    width : 90%;
+}
+#shopcart input[type="text"]{
+    width : 80px;
+}
+#shopcart input[type="reset"], 
+#shopcart input[type="button"]{
+    margin : 5px 10px;
+    width : 60px;
+    height : 30px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/*register*/
+#register{
+    margin : 10%; 
+}
+#register legend{
+    font-size : 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#register ul li{
+    list-style-type: none;
+}
+#register ul li label{
+	display : inline-block;
+	width : 130px;
+	height : 35px;
+    margin-left: 15px;
+}
+#register ul li input{
+    width : 200px;
+    height: 25px;
+    margin: 5px 5px;
+}
+#register ul li input[type="radio"]{
+    width : 15px;
+    height: 15px;
+    margin : 0px 10px;
+}
+#register input[type="reset"], 
+#register input[type="submit"]{
+    margin : 10px 10px;
+    width : 200px;
+    height : 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    background : #cecdcd;
+}
+#register input[type="button"]{
+    width : 90px;
+    height : 30px;
+    border-radius: 5px;
+    background : #cecdcd;
+}

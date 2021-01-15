@@ -9,7 +9,7 @@ header{
     padding : 10px;
     text-align: center;
     background: #efefe0;
-    height : 100px;
+    height : 110px;
     width : 100%;
 }
 header div{
@@ -45,14 +45,13 @@ nav ul li a{
     text-decoration: none;
 }
 section{
-    max-width: 1200px;
-    min-width : 880px;
+    max-width: 1400px;
+    min-width : 900px;
     margin:auto;
 }
 .sec{
     float : left;
-    height : 800px;
-    margin: auto ; 
+    height : 550px; 
 }
 .left{
     width: 20%;
@@ -72,6 +71,10 @@ section{
     display: inline-block;
     width : 100%;
     color : white;
+	font-weight: bold;
+}
+.left li a:hover{
+	background: #19197c;
 }
 .article{
    width : 60%;
@@ -94,7 +97,7 @@ footer{
     color : white;
     height: 50px;
     padding : 10px 0px;
-    text-align : center
+    text-align : center;
 }
 /*computer, clothing, music, sport, furniture, food*/
 .box{
@@ -103,13 +106,15 @@ footer{
     border : 1px solid lightgray;
     padding : 20px;
     margin-right: 5px;
-    height : 780px;
+    height : 545px;
 }
 .box a img{
-    width : 150px;
+    width : 100%;
+	margin : 0px 20opx;
 }
 .box input[type="button"]{
-    margin : 20px 10px;
+    margin : 20px 0px;
+	padding : 10px 10px;
 }
 .box div:last-of-type{
     margin-right : 0px;
@@ -132,17 +137,19 @@ footer{
 }
 #shopcart table{
     border : 1px solid black;
-    display : inline-block;
     border-collapse: collapse;
     width : 70%;
-    margin : 30px 0px;
+    margin : 30px auto;
+}
+#shopcart table tr{
+    width : 100%;
 }
 #shopcart table th{
    height : 30px;
 }
 #shopcart table td{
     height : 50px;
-    width : 200px;
+    width: 25%;
 }
 #shopcart input[type="number"]{
     width : 90%;
@@ -150,25 +157,25 @@ footer{
 #shopcart input[type="text"]{
     width : 80px;
 }
-#shopcart input[type="reset"], 
-#shopcart input[type="button"]{
-    margin : 5px 10px;
-    width : 60px;
-    height : 30px;
-    border-radius: 5px;
-    font-weight: bold;
+#shopcart input[type="reset"],
+#shopcart input[type="button"] {
+	margin: 5px 10px;
+	width: 60px;
+	height: 30px;
+	border-radius: 5px;
+	font-weight: bold;
 }
 /*register*/
 #register{
-    margin : 10%; 
+    margin : 20% 5%; 
 }
 #register legend{
-    font-size : 1.2em;
-    font-weight: bold;
-    margin-bottom: 15px;
+	font-size : 1.2em;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 #register ul li{
-    list-style-type: none;
+	list-style-type: none;
 }
 #register ul li label{
 	display : inline-block;
@@ -188,7 +195,7 @@ footer{
 }
 #register input[type="reset"], 
 #register input[type="submit"]{
-    margin : 10px 10px;
+    margin : 15px 10px;
     width : 200px;
     height : 30px;
     border-radius: 5px;
@@ -201,4 +208,3 @@ footer{
     border-radius: 5px;
     background : #cecdcd;
 }
-/*공통으로 사용되는 스타일 정의 => main에서 iframe부분빼고 거의 다 정의*/

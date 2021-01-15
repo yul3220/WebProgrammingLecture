@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/public.css">
-
 <style>
 </style>
-
 <script>
 	function proc1(){
 		str = "";
@@ -17,7 +15,7 @@
 		}
 		
 		result = document.querySelector('#result1');
-		result.innerHTML = str;
+		result.innerHTML += str + "<br>" ; //=를 사용하면 덮어쓰기가 됨
 		
 	}
 </script>
