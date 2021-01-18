@@ -23,13 +23,14 @@ div.box {
 }
 
 .box input[type=button]{
-    width : 55px;
+    width : 90px;
     height: 30px;
     background: blue;
     color : white;
     padding : 5px 10px;
     border-radius: 10px;
     font-weight: bold;
+	text-align: center;
 }
 
 .box div{

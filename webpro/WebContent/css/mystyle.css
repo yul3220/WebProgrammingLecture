@@ -6,14 +6,14 @@
 }
 /*main------------------------------------------------------------------*/
 header{
+    min-width : 1000px;
+}
+header div{
+    display: inline-block;
     padding : 10px;
     text-align: center;
     background: #efefe0;
-    height : 110px;
     width : 100%;
-}
-header div{
-    display: inline;
 }
 header img{
 	vertical-align: middle;
@@ -23,11 +23,12 @@ header h2 {
     display: inline-block;
     margin-left: 10px;
 }
-nav{
+header nav{
     margin : 5px 0px;
     height : 10%;
+    min-width : 1000px;
 }
-nav ul{
+header nav ul{
 	border : 3px dotted #1634db;
     border-left : none;
     border-right : none;
@@ -35,17 +36,17 @@ nav ul{
     padding : 10px;
     text-align: center;
 }
-nav ul li{
+header nav ul li{
 	display: inline; 
     padding : 10px;
     margin : 20px;
 }
-nav ul li a{
-	letter-spacing: 5px;
+header nav ul li a{
+	letter-spacing: 3px;
     text-decoration: none;
 }
 section{
-    max-width: 1400px;
+    max-width: 1300px;
     min-width : 900px;
     margin:auto;
 }
@@ -77,7 +78,7 @@ section{
 	background: #19197c;
 }
 .article{
-   width : 60%;
+   width : 55%;
 }
 section article iframe{
 	width : 100%;
@@ -91,6 +92,10 @@ section article iframe{
 .right h2:nth-of-type(2){
     margin-top: 200px;
 }
+.right form input[type="text"],
+.right form input[type="password"]{
+    width : 90%;
+}
 footer{
     clear: both;
     background: black;
@@ -98,10 +103,11 @@ footer{
     height: 50px;
     padding : 10px 0px;
     text-align : center;
+    min-width : 1000px;
 }
 /*computer, clothing, music, sport, furniture, food*/
 .box{
-    width : calc((99% - 10px) / 3);
+    width : calc((97% - 10px) / 3);
     float : left;
     border : 1px solid lightgray;
     padding : 20px;
@@ -114,7 +120,7 @@ footer{
 }
 .box input[type="button"]{
     margin : 20px 0px;
-	padding : 10px 10px;
+	padding : 5px 5px;
 }
 .box div:last-of-type{
     margin-right : 0px;
@@ -131,9 +137,9 @@ footer{
 }
 /*shopcart*/
 #shopcart{
-    margin : auto;
-    margin-top : 20%;
+    margin : 15% auto;
     text-align: center;
+	width : 900px;
 }
 #shopcart table{
     border : 1px solid black;
@@ -167,7 +173,8 @@ footer{
 }
 /*register*/
 #register{
-    margin : 20% 5%; 
+    margin : 15% auto; 
+	width : 800px;
 }
 #register legend{
 	font-size : 1.2em;
