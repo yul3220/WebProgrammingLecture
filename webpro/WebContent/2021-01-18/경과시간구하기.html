@@ -19,12 +19,12 @@
 		bday = birth.getTime();
 		console.log(today, bday);
 		
-		days = Math.ceil(today - bday); //c
-		sec = days / 1000; //f
-		min = sec / 60; //par
-		hour = min / 60; //to
-		day = hour / 24;// f
-		year = day/365;
+		days = today - bday; 
+		sec = Math.ceil(days / 1000);
+		min = Math.floor(sec / 60); 
+		hour = (min / 60).toFixed(1); 
+		day = parseInt(hour / 24);
+		year = Math.floor(day/365);
 		//Math.ceil(올림), Math.floor(버림), parseInt(버림)
 		//(hour).toFixedhour(1) => 소수점 한자리까지 출력
 		
