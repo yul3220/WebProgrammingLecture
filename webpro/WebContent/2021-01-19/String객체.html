@@ -71,28 +71,53 @@
 		}
 	}
 	
-	function proc5(){
+	/*function proc5(){
 		res = "";
 		while(true){
 			aa = prompt("이름을 입력하세요.");
 			
-			console.log(aa, aa.length);
+			console.log("전 : "+aa, aa.length);
 			
 			// aa에 space바를 클릭해서 입력시
 			if(aa.trim().length < 1){
-				console.log("aa==" + aa, aa.length);
 				alert("다시 입력하세요.");
 				continue;
 			}
 			
+			aa = aa.trim();
+			
 			// prompt창에서 취소버튼을 클릭하면 종료
 			if(aa == null) break;
 			
-			res += `${aa} <br>`;
+			res += `후 : ${aa} , ${aa.length} <br>`;
 			
 		}
 			document.getElementById('result5').innerHTML = res;
-	}
+	}*/
+	
+	function proc5(){
+        res = "";
+        while(true){
+            aa = prompt("이름을 입력하세요");
+            
+            // prompt창에서 취소버튼  클릭하면 종료
+            if(aa == null) break;
+            
+            console.log("전" + aa , aa.length);
+            
+            // aa에 space바를 클릭해서 입력시
+            if(aa.trim().length < 1){
+                alert("다시 입력하세요")
+                continue;
+            }
+            res = aa.trim();
+            
+            res += `후 : ${aa}, ${aa.trim().length} <br>`;
+        }
+        
+        // 출력
+        document.getElementById('result5').innerHTML = res;
+    }
 </script>
 </head>
 <body>
