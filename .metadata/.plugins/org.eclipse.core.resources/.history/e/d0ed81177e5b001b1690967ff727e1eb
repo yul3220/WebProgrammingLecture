@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css"/>
+<script src="../js/formccheck.js"></script>
+<style>
+	label{
+		display: inline-block;
+		width : 130px;
+		height: 30px;
+	}
+</style>
+<script>
+	function proc1(){
+		if(check()) alert("성공");
+	}
+</script>
+</head>
+<body>
+<div class="box">
+	<br><br>
+	<form>
+		<label for="name">이름</label>
+		<input type='text' id='name'/><br>
+		<label for="pass">비밀번호</label>
+		<input type='password' id='pass'/><br>
+		
+		<label for="birthday">생일</label>
+		<input type='date' id='birthday'/><br>
+		<label for="id">아이디(6-8 문자)</label>
+		<input type='text' id='id' /><br>
+		
+		<label>이메일</label>
+		<input type='text' id='email' /><br>
+		<label>휴대폰</label>
+		<input type='text' id='phone' /><br><br>
+		
+		<input type='button' value='확인' onclick='proc1()'/><br>
+	</form>
+
+	<div id="result1"></div>
+</div>
+</body>
+</html>
+<!-- inline-block은 줄은 안바뀌면서 inline요소의 크기를 지정할 수 있게끔 함/
+/ 이름 정규식 할떄 하까지 하면 야나 여를 사용 못하고, 받침있는것도 사용불가/
+라벨 뒤에 for는 -->
