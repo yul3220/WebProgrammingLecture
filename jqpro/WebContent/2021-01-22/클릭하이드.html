@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/public.css" />
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<style>
+		input[type=button] {
+			display: none;
+			< !--처음 실행할때는 안보이게끔 함 / css가 정적으로 고정되어 있는 상태-->
+		}
+	</style>
+	<script>
+		$(document).ready(function() { //줁비되면//모든 함수들은 이안에 들어와야한다.
+			//h2 클릭하면
+			$("h2").on("click", function() {
+				//클릭한 대상 h2를 사라지게 한다. 
+				$(this).css("display", "none");
+				//this=>클릭한 위치를 알기 위해 사용
+
+				//보이는 h2의 갯수를 0인지 비교 - button을 나타나게 한다.
+				//:visible => 필터에 해당한다. 
+				if ($("h2:visible").length < 1) {
+					$("input:button").css("display", "block");
+				}
+			})
+
+			//버튼을 클릭하면
+			$("input:button").on("click", function() {
+				//모든h2를 보이겧한다.
+				$("h2").css("display", "block");
+
+				//버튼은 다시 사라지게 한다.
+				$(this).css("display", "none");
+			})
+
+		})
+	</script>
+</head>
+
+<body>
+	<div class="box">
+		<input type="button" value="보이기">
+		<br>
+
+		<div id="result1">
+			<h2>클릭하면 사라집니다1</h2>
+			<h2>클릭하면 사라집니다2</h2>
+			<h2>클릭하면 사라집니다3</h2>
+			<h2>클릭하면 사라집니다4</h2>
+			<h2>클릭하면 사라집니다5</h2>
+			<h2>클릭하면 사라집니다6</h2>
+			<h2>클릭하면 사라집니다7</h2>
+			<h2>클릭하면 사라집니다8</h2>
+			<h2>클릭하면 사라집니다9</h2>
+			<h2>클릭하면 사라집니다10</h2>
+		</div>
+	</div>
+</body></html>
