@@ -68,7 +68,8 @@
 				
 				File : <input type="file"><br><br>
 				
-				Buttons : <button type="button" id="normalButton">Normal</button>s
+				Buttons : <button type="button" id="normalButton">Normal</button>
+				
 				<button type="submit" id="submitButton">Submit</button>
 				<button type="reset" id="resetButton">Reset</button> 
 				<button>전송</button>
@@ -83,4 +84,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
