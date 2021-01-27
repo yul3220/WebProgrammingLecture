@@ -23,7 +23,9 @@
 					//체크되어있는 체크박스
 					res += $(this).val() + " ";
 				});
-				alert(res);
+				res += "를(을) 산텍하셨습니다.";
+				$("#result2 div").html(res).css("background", "orange");// html 대신 text사용 가능
+				$("#result2 div").css("font-size", "1.5em");
 			})
 		})
 	</script>
@@ -68,7 +70,8 @@
 				<input type="checkbox" name="hobby" value="독서" checked="checked">독서
 				<input type="checkbox" name="hobby" value="낚시">낚시<br>
 			</form>
-
+			
+			<div></div>
 		</div>
 	</div>
 </body></html>
