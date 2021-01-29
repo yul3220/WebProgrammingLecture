@@ -22,11 +22,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
-		
-		$(".box1 input:button").on("click", function(){
-			$(this).parents(".box1").find("span").css("border","2px solid red");
-		})
-		
+		$(".box input:button").on("click", function(){
+			$(this).parents(".box").find("span").css("border","3px solid red");
+		})//각각의 find를 누를때 각각의 박스의 span에 css가 된다.
+		//this로 현재 누르는 것이 무엇인지를 전달받기 때문에 가능
 	});
 </script>
 </head>
