@@ -5,22 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style>
-	p{
-		font-size : 2.0em;
-		color : red;
-	}
+ p{
+    font-size : 2.0em;
+    color  : red;
+ }
 </style>
+
 </head>
 <body>
-	<h1>JSP : Java Server Page</h1>
-	<% 
-		request.setCharacterEncoding("UTF-8");
-		String aa = request.getParameter("txt");
-		String bb = request.getParameter("pass");
-	%>
-	
-	<p><%= aa %></p>
-	<p><%= bb %></p>
+ <h1>JSP  : Java Server Page</h1>
+ <%
+     String aa  = request.getParameter("txt");
+     String bb  = request.getParameter("pass");
+     
+ %>
+ 
+ <p><%= aa %></p>
+ <p><%= bb %></p>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css"/>
+<style>
+</style>
+<script>
+	now1 = new Date();
+	
+	function proc1(){
+		//태어난 날로부터 현재까지 경과한 날 구하기
+		birth = new Date("1997. 03. 20");
+		//birth = new Date(1997, 03-1, 20);
+		
+		//각 날짜의 millisec값 구하기
+		today = now1.getTime();
+		bday = birth.getTime();
+		console.log(today, bday);
+		
+		days = today - bday; 
+		sec = Math.ceil(days / 1000);
+		min = Math.floor(sec / 60); 
+		hour = (min / 60).toFixed(1); 
+		day = parseInt(hour / 24);
+		year = Math.floor(day/365);
+		//Math.ceil(올림), Math.floor(버림), parseInt(버림)
+		//(hour).toFixedhour(1) => 소수점 한자리까지 출력
+		
+		res = "오늘 " + now1.toLocaleString() + "<br>";
+		res += "태어난 날 : " + birth.toLocaleString() + "<br>";
+		res += sec+"초가 경과했습니다.<br>"
+		res += min+"분이 경과했습니다.<br>"
+		res += hour+"시간이 경과했습니다.<br>"
+		res += day+"일이 경과했습니다.<br>"
+		res += year+"년이 경과했습니다.<br>"
+		
+		result = document.getElementById('result1');
+		result.innerHTML = res;
+	}
+</script>
+</head>
+<body>
+<div class="box">
+	경과시간 구하기 : getTime()<br>
+	getTime()함수는 milliseconds값을 리턴한다.
+	<br><br>
+	<input type="button" value="확인" onclick="proc1()"/>
+
+	<div id="result1"></div>
+</div>
+</body>
+</html>

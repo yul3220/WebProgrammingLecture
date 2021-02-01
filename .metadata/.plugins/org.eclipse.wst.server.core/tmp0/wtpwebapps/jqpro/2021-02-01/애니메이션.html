@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css"/>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+	img{
+		width : 50px;
+		height: 50px;
+		position: relative;
+	}
+	p{
+		position: relative;/*상대위치*/
+	}
+</style>
+<script>
+	$(function(){
+		//$("img").css({"width" : "100px", "height" : "100px"})
+		
+		$("#btn1").on("click",function(){
+			//$("img").animate({left:"100px", "width":"+=50px", "height":"+=50px"},500);//0.5초동안 애니메이션작동
+			//position을 지정하지 않으면 작동이 되지않음
+			//left로 가면서 커진다.
+			
+			//$("img").animate({"left":"100px"}, 500).animate({"width":"+=100px"}, 500).animate({"height":"+=100px"}, 500);
+			//left로 이동한 다음, 가로가 커지고 세로가 커진다.
+			
+			$("img").animate({"left":"100px"}, 500)
+				.delay(500)
+				.animate({"width":"+=100px", "height":"+=100px"}, 500)
+				.delay(500)
+				.animate({"left":"-=100px"}, 500)
+				.delay(500).animate({"width":"-=100px", "height":"-=100px"}, 500);
+			//left로 이동한 후 0.5초 기다린 다음 크기가 커진다.	
+		})
+		
+		$("#btn2").on("click", function(){
+			//$("p").css("font-size", "+=10px"); => 한꺼번에 변경
+			//$("p").animate({"font-size":"+=10px"},500); => 서서히 변경
+			
+			a= setInterval(function(){
+				$("p").animate({"left":"+=200px"},500)
+				.animate({"font-size":"+=10px"},500)
+				.delay(500)
+				.queue(function(){
+					cr = Math.floor(Math.random()*256);
+					cg = Math.floor(Math.random()*256);
+					cb = Math.floor(Math.random()*256);
+					
+					$(this).css("color","rgb("+cr+","+cg+","+cb+")");//서서히 빨간색으로 변경하는것이 아닌 한꺼번에 red색으로 변경된다.
+					$(this).dequeue();//큐를 빠져나옴, 큐를 빠져나와야지 animate를 이어서 사용할 수 있음
+				})
+				.delay(500)
+				.animate({"left":"-=200px"},500)
+				.animate({"font-size":"-=10px"},500)
+				.queue(function(){
+					$(this).css("color","black");
+					$(this).dequeue();
+				});
+			}, 2000);//2초가 지나고 function의 내용을 계속 반복해라 
+			//하지만, 안의 시간이 2초를 넘어가기때문에 2초가 아닌것처럼 보임	
+			$(this).hide();
+			$("#btn3").show();
+		})
+		
+		$("#btn3").click(function(){
+			//확인버튼을 계속누르면 다른값이 생기기때문에 종료를 눌러도 꺼지지 않는다.
+			clearInterval(a);
+			$("#btn2").show();
+			$(this).show();
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+
+		<br><br>
+		<input id="btn1" type="button" value="확인"/>
+
+		<div id="result1">
+			<img src="../images/Penguins.jpg" alt="펭귄">
+		</div>
+	</div>
+	
+	<div class="box">
+
+		<br><br>
+		<input id="btn2" type="button" value="확인"/>
+		<input id="btn3" type="button" value="종료"/>
+
+		<div id="result2">
+			<p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+</body>
+</html>

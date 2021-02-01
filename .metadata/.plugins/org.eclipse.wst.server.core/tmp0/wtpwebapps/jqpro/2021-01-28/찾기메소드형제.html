@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	.siblings * {
+		/*클래스 siblings안에 있는 모든것*/
+		display: block;
+		border: 2px solid lightgrey;
+		color: lightgrey;
+		padding: 5px;
+		margin: 15px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!--네트워크를 통해 jquery script를 가져옴-->
+<script>
+	$(document).ready(function() {
+		$("#next").on("click", function() {
+			$("#d1 li.start").next().css({"color": "red","border": "2px solid red"});
+		})
+		
+		$("#nextall").on("click", function() {
+			$("#d1 li.start").nextAll().css({"color": "blue","border": "2px solid blue"});
+		})
+
+		$("#nextuntil").on("click", function() {
+			$("#d1 li.start").nextUntil("#d1 li:last").css({"color": "green","border": "2px solid green"});
+		})
+		
+		$("#prev").on("click", function() {
+			$("#d2 li.start").prev().css({"color": "red","border": "2px solid red"});
+		})
+		
+		$("#prvall").on("click", function() {
+			$("#d2 li.start").prevAll().css({"color": "blue","border": "2px solid blue"});
+		})
+
+		$("#prvuntil").on("click", function() {
+			$("#d2 li.start").prevUntil("#d2 li:first").css({"color": "green","border": "2px solid green"});
+		})
+		
+		$("#sib").on("click", function() {
+			$("#d3 li.start").siblings().css({"color": "blue","border": "2px solid blue"});
+		})
+
+		$("#sib_select").on("click", function() {
+			$("#d3 li.start").siblings("#d3 li.aa").css({"color": "green","border": "2px solid green"});
+		})
+	});
+</script>
+</head>
+<body>
+	<input type="button" id="next" value="next">
+	<input type="button" id="nextall" value="nextAll">
+	<input type="button" id="nextuntil" value="nextUntil">
+
+	<div id="d1" style="width:500px;" class="siblings">
+		<ul>ul (parent)
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li class="start">li (sibling with class name "start")</li>
+			<li>li (the next sibling of li with class name "start")</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+		</ul>
+	</div>
+	<hr>
+	<input type="button" id="prev" value="prev">
+	<input type="button" id="prvall" value="prevAll">
+	<input type="button" id="prvuntil" value="prevUntil">
+	
+	<div id="d2" style="width:500px;" class="siblings">
+		<ul>ul (parent)
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li class="start">li (sibling with class name "start")</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+		</ul>
+	</div>
+	<hr>
+	<input type="button" id="sib" value="siblings">
+	<input type="button" id="sib_select" value="siblings(selector)">
+	
+	<div id="d3" style="width:500px;" class="siblings">
+		<ul>ul (parent)
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li class="aa">li (sibling)</li>
+			<li>li (sibling)</li>
+			<li>li (sibling)</li>
+			<li class="start">li (sibling with class name "start")</li>
+			<li>li (sibling)</li>
+			<li class="aa">li (sibling)</li>
+		</ul>
+	</div>
+</body>
+
+</html>
