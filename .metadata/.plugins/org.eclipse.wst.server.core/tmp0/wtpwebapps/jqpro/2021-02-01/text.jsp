@@ -17,5 +17,8 @@
 	%>
 	
 	<p><%=userId %>님 환영합니다.</p>
+	<p><%=userName %>님 즐거운 하루 되세요.</p>
+	<p><%=userTel %> <%=userPass%></p>
+
 </body>
 </html>

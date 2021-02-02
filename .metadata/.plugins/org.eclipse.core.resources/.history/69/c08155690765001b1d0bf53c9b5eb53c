@@ -1,0 +1,21 @@
+<%@page import="java.nio.charset.Charset"%>
+<%@page import="com.ibatis.common.resources.Resources"%>
+<%@page import="java.io.Reader"%>
+<%@page import="com.ibatis.sqlmap.client.SqlMapClientBuilder"%>
+<%@page import="com.ibatis.sqlmap.client.SqlMapClient"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	//클라이언트 요청시 전송되는 데이터를 받는다.
+	// CRUD처리를 한다.
+	//- 1. sqlMapClient객체를 얻어오기 - aa = sqlMapClientFactory.getClient()
+	//- 2. sql문을 실행 - mapper파일의 namespace.id이름
+	//		select -> aa.queryForList(namespace.id이름) ==> 결과가 여러줄일때 사용
+	//select결과가 한줄이면 queryForObject(namespace.id이름)사용
+	
+	// 처리 결과로 응답 데이터를 생성한다 - json, text, html, xml
+%>
+<% 
+	//sqlMapClient객체를 얻어오기
+	SqlMapClient aa = sqlMapClientFactory.getClient()
+%>
