@@ -1,0 +1,30 @@
+<%@page import="kr.or.ddit.lprod.LprodVO"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.or.ddit.ibatis.config.SqlMapClientFactory"%>
+<%@page import="com.ibatis.sqlmap.client.SqlMapClient"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	// 1. sqlMapClient객체를 얻어오기
+	SqlMapClient aa = SqlMapClientFactory.getClient();
+
+	// 2. sql문을 실행
+	List<LprodVO> list = aa.queryForList("lprod.selectLprod");
+%>
+[ 
+<%	
+//JAVA// 3. 실행 결과로 json데이터 생성
+	for(int i=0; i<list.size();i++){
+		LprodVO vo = list.get(i);
+		if(i>0) out.print(",");//out.print => 출력
+		//out은 내장printwriter객체이다. // 자바에서의 System.out.print()의 기능을 수행
+%>
+{
+	"id" : "<%= vo.getLprod_id() %>",
+	"gu" : "<%= vo.getLprod_gu() %>",
+	"nm" : "<%= vo.getLprod_nm()() %>"
+}
+<% 
+	}
+%>
+] 
