@@ -7,4 +7,8 @@
 	<select id="selectByNames" resultClass="buyerVO">
 		select buyer_id, buyer_name from buyer
 	</select>
+	
+	<select id="selectByDetails" parameterClass="string" resultClass="buyerVO">
+		select * from buyer where buyer_id = #data#
+	</select>
 </sqlMap>

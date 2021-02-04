@@ -1,0 +1,58 @@
+<%@page import="kr.or.ddit.prod.ProdVO"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.or.ddit.ibatis.config.SqlMapClientFactory"%>
+<%@page import="com.ibatis.sqlmap.client.SqlMapClient"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	// 1. 클라이언트 요청시 전송되는 데이터 받기
+	String prod_id = request.getParameter("id");
+
+	// 2. sqlMapClient객체 열기
+	SqlMapClient client = SqlMapClientFactory.getClient();
+
+	// 3. sql문 실행 - select
+	ProdVO vo =  (ProdVO)client.queryForObject("prod.selectBydetails", prod_id);
+%>
+<table class=".tb1" border="1">
+<tr><td>PROD_ID</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_NAME</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_LGU</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_BUYER</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_COST</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_ID</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_PRICE</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_ID</td>
+<td><%=vo.getProd_id() %></td></tr>
+
+<tr><td>PROD_ID</td>
+<td><%=vo.getProd_id() %></td></tr>
+</table>
+PROD_PRICE
+PROD_SALE
+PROD_OUTLINE
+PROD_DETAIL
+PROD_IMG
+PROD_TOTALSTOCK
+PROD_INSDATE
+PROD_PROPERSTOCK
+PROD_SIZE
+PROD_COLOR
+PROD_DELIVERY
+PROD_UNIT
+PROD_QTYIN
+PROD_QTYSALE
