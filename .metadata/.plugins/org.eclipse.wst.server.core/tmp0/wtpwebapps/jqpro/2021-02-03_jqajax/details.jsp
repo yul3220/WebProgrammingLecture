@@ -3,6 +3,9 @@
 <%@page import="com.ibatis.sqlmap.client.SqlMapClient"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <%
 	//1. 클라이언트 요청시 전송되는 데이터 받기
 	String buyer_id = request.getParameter("id");
@@ -13,7 +16,7 @@
 	// 3. sql문 실행 - select
 	BuyerVO vo = (BuyerVO) client.queryForObject("buyer.selectByDetails", buyer_id);//parameter를 넘겨줌
 %>
-<table class='tb'>
+<table class="tb">
 <tr><td>BUYER_ID</td>
 <td><%= vo.getBuyer_id()%></td></tr>
 

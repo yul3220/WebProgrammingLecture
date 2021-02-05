@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+#result1 table{
+	text-align: center;
+	width : 1000px;
+}
+</style>
+<script>
+	$(function(){
+		$("input").click(function(){
+			$.ajax({
+				url : "/prod/ProdList",
+				type : "get",
+				success : function(res){
+					$("#result1").html(res);
+				},
+				error : function(xhr){
+					alert("상태 : " + xhr.status);
+				},
+				dataType : "html"
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+    	
+    	<br><br>
+    	<input type="button" value="확인"/>
+
+    	<div id="result1"></div>
+	</div>
+</body>
+</html>

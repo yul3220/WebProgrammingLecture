@@ -1,0 +1,29 @@
+package kr.or.ddit.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import kr.or.ddit.ibatis.config.SqlMapClientFactory;
+import kr.or.ddit.member.MemberVO;
+
+public class DaoImpl implements IDaoSample {
+	SqlMapClient client;
+	
+	// 생성자
+	private DaoImpl(){//new DaoImpl()을 할수없도록 private로 정의
+		client = SqlMapClientFactory.getClient();
+	}
+	
+	@Override
+	public List<MemberVO> getMemberAll() {
+		 List<MemberVO> list = null;
+		 try {
+			list = client.queryForList("member.selectAll");
+		 } catch (SQLException e) {
+			e.printStackTrace();
+		 }
+		 return list; // service로 리턴한다.(list결과를)
+	}
+}
