@@ -1,0 +1,29 @@
+package kr.or.ddit.member.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.member.vo.MemberVO;
+import kr.or.ddit.member.vo.ZipVO;
+
+public class MemberDaoImpl implements IMemberDao {
+
+	@Override
+	public String selectById(String id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String insertMember(MemberVO vo) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ZipVO> selectByDong(String dong) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

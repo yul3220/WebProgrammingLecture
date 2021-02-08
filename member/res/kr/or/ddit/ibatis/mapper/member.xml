@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<select id="selectById" parameterClass="java.lang.String" resultClass="string">
+		select mem_id from member
+		where mem_id = #data#
+	</select>
+	
+	<insert id="insertMember" parameterClass="memberVO">
+		insert into member(mem_id, mem_pass, mem_name, mem_bir, mem_zip, 
+		mem_add1, mem_add2, mem_hp, mem_mail)
+		values (#mem_id#, #mem_pass#, #mem_name#, #mem_bir#, #mem_zip#, 
+		#mem_add1#, #mem_add2#, #mem_hp#, #mem_mail#)
+		
+		<selectKey keyProperty="mem_id" resultClass="string">
+			select mem_id from member where mem_id = #mem_id#
+		</selectKey>
+	</insert>
+	
+	<select id="selectByDong" parameterClass="string" resultClass="zipVO">
+		select * from ziptb where dong like #data#||'%'
+	</select>
+</sqlMap>
+<!-- insert의 member()안에는 대문자가능, values이후는 소문자만 가능 => MemberVO이기때문에 -->
+<!-- insert하면 결과가 성공하면 null이 나옴 => selectKey을 통해 성공할때 리턴할내용을 다시 재정의
+=> 리턴타입도 resultClass에 지정해놓은것으로 리턴해야함-->
