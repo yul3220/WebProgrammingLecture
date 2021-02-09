@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+<style>
+	.ziptr:hover{
+		background : crimson;
+	}
+</style>
+<script>
   	$(function(){
+  		//--------------------------------------------------02.08
   		$("#idbtn").on("click", function(){
   			idvalue = $("#id").val().trim();
   			
@@ -31,15 +38,136 @@
   				dataType : "json"
   			})
   		})//idbtn클릭
+  		
+  		//--------------------------------------------------02.09
+  		// 우편번호 검색 - window
+  		//DOM객체를 window에 올려놓음
+  		$("#wzipbtn").on("click", function(){
+  			// 새로운 창 열기
+  			//우편번호찾기 => 논리적인 이름(화면에 나타나지는 않음, 개발자가 그냥 확인하기 위해 사용)
+  			//window.open("zipsearch.html", "_self", "width=500 height=400");
+  			//=>_self를 하면 현재화면의 크기를 맞춰서 현재화면에 html이 열림
+  			//=>_blank 새로운창이 열림
+  			window.open("zipsearch.html", "우편번호찾기", "width=500 height=400");
+  			
+  		})//wziptbn클릭
+  		
+  		// 우편번호 검색 - modal - 별도의 이벤트 핸들러 없음
+  		// <button class="btn btn-warning btn-sm" data-toggle="modal" 
+  		// data-target="#myModal" id="mzipbtn" 
+      	// type="button">번호검색(modal)</button>
+      	
+      	// 우편번호 modal에서 동 입력후 확인버튼 클릭 이벤트
+  		$("#dongbtn").on("click", function(){
+			//입력한값 가져오기
+			dongvalue = $("#dong").val().trim();
+			
+			//서버로 전송(요청)
+			$.ajax({
+				url : "/member/DongSearch.do",
+				data : {"dong" : dongvalue},
+				type : "post",
+				success : function(res){
+					code = "<table border='1' class='table table-bordered'>";
+					code += "<tr><td>우편번호</td>";
+					code += "<td>주소</td>";
+					code += "<td>번지</td></tr>";
+					$.each(res, function(i, v){
+						code += "<tr class='ziptr'><td>" + v.code + "</td>";
+						code += "<td>" + v.addr + "</td>";
+						code += "<td>" + v.bunji + "</td></tr>";
+					})//each끝
+					code += "</table>";
+					
+					$("#result1").html(code);
+				},
+				error : function(xhr){
+					alert("상태 : " + xhr.status);
+					// 200(응답은 성공했으나 응답데이터의 형식이 잘못된 경우 뜨는 에러),
+					// 404(name을 잘못작성),403(요청오류)
+				},
+				dataType : "json"
+			})//ajax 끝
+		})//button클릭
+		
+		// modal결과에서 원하는 행(주소)를 선택했을떄 이벤트
+		// 동적으로 새롭게 생성된 요소 - delegate	
+		//부모는 같이 생긴것보다는 기존에 있던것들로 잡는 것이 좋음
+		$("#result1").on("click", ".ziptr", function(){
+			//.ziptr에 있는 td의 자식을 선택하게 하고 싶음 => this는 ziptr
+			//td속에 있는 값들을 들고오기 위해서는 html(), text()사용 / eq()는 인덱스가 0부터 시작
+			zipcode = $("td:eq(0)", this).text();
+			addr = $("td:eq(1)", this).text();
+			
+			// 폼에 출력
+			$("#zip").val(zipcode);
+			$("#add1").val(addr);
+			
+			// 모달창 닫기
+			$("#myModal").modal('hide');
+			
+			// 모달창 내용 지우기
+			$("#dong").val("");
+			$("#result1").empty();
+		})
+		
+		// 제출버튼 클릭 이벤트
+		// $("button[type=submit]").on("click", function(){})
+      	//$("button:submit").on("click", function(){})
+      	$("#ff").on("submit", function(){//form의 제출버튼에 해당하는 함수
+      		//02.01 교재리스트.html참고
+      		// submit의 고유 기능(전송)을 방지한다.
+      		event.preventDefault();
+      	
+      		// 입력한 모든값(9개)을 가져온다 - val()
+      		/*idvalue = $("#id").val().trim();
+      		namevalue = $("#name").val().trim();
+      		passvalue = $("#pwd").val().trim();
+      		mailvalue = $("#email").val().trim();
+      		birvalue = $("#bir").val().trim();
+      		zipvalue = $("#zip").val().trim();
+      		add1value = $("#add1").val().trim();
+      		add2value = $("#add2").val().trim();
+      		hpvalue = $("#hp").val().trim();
+      		
+      		datas = {"mem_id":idvalue,"mem_name":namevalue,"mem_pass":passvalue,
+      				"mem_mail":mailvalue,"mem_bir":birvalue,"mem_zip":zipvalue,
+      				"mem_add1":add1value,"mem_add2":add2value,"mem_hp":hpvalue}
+      		
+      		console.log(datas);
+      		
+      		datas = "mem_id="+idvalue + "&mem_name="+namevalue
+      		+"&mem_pass="+passvalue+"&mem_mail="+mailvalue+
+      		"&mem_bir="+birvalue+"&mem_zip="+zipvalue+
+      		"&mem_add1="+add1value+"&mem_add2="+add2value+
+      		"&mem_hp="+hpvalue;
+      		
+      		console.log(datas);*/
+      		console.log($("#ff").serialize());
+      		console.log($("#ff").serializeArray());
+      		console.log($("#ff").serializeJSON());
+      		
+      		$.ajax({
+      			url : "/member/Insert.do",
+      			method : "post",
+      			data : $("#ff").serializeJSON(),
+      			success : function(res){
+      				$("#submit").html(res.sw).css("color", "blue");
+      			},
+      			error : function(xhr){
+      				alert("상태 : " + xhr.status);
+      			},
+      			dataType : "json"
+      		})
+      	})
   	})//function끝
-  </script>
-
+</script>
 </head>
 <body>
 <div class="container">
   <h3>회원가입</h3>
   <br>
-  <form class="form-horizontal">
+  <form class="form-horizontal" id="ff">
   	<div class="form-group">
       <label class="control-label col-sm-2" for="id">아이디</label>
       <div class="col-sm-3">
@@ -96,7 +224,9 @@
         <input type="text" class="form-control" id="zip" 
         placeholder="Enter zip" name="mem_zip">
       </div>
-      <button class="btn btn-warning btn-sm" id="zipcode" type="button">번호검색</button>
+      <button class="btn btn-warning btn-sm" id="wzipbtn" type="button">번호검색(window)</button>
+      <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" 
+      id="mzipbtn" type="button">번호검색(modal)</button>
     </div>
     
     <div class="form-group">
@@ -127,10 +257,34 @@
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         <button type="reset" class="btn btn-danger btn-lg">초기화</button>
+        <span id="submit"></span>
       </div>
     </div>
   </form>
 </div>
 
+	<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+         	<input type="text" id="dong"/>
+    		<input type="button" id="dongbtn" value="확인"/>
+
+    		<div id="result1"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>
