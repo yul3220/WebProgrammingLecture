@@ -151,6 +151,7 @@
       			url : "/member/Insert.do",
       			method : "post",
       			data : $("#ff").serializeJSON(),
+      			//js의 폴터에 있는 jquery.serializejson.min.js라이브러리를 통해 실행됨
       			success : function(res){
       				$("#submit").html(res.sw).css("color", "blue");
       			},
@@ -206,7 +207,7 @@
       <label class="control-label col-sm-2" for="email">이메일</label>
       <div class="col-sm-3">
         <input type="email" class="form-control" id="email"
-         placeholder="Enter email" name="mem_email">
+         placeholder="Enter email" name="mem_mail">
       </div>
     </div>
     
