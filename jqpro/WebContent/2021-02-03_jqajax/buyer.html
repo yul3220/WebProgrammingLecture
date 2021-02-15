@@ -22,6 +22,7 @@ td {
 }
 .t1 {
 	background: #7799f7;
+	height: 40px;
 }
 p:hover {
 	background: lime;
@@ -33,7 +34,19 @@ p:hover {
 <script>
 	$(function() {
 		$("input:button").on("click", function() {
-			$.ajax({
+			$.getJSON(
+					"buyerNames.jsp",
+					function(res) {
+						code = "";
+						$.each(res, function(i, v) {
+							code += "<p id='" + v.id + "'>" + v.name + "</p>"
+						})
+
+						$("#names").html(code);
+					}
+			)//02.15 ajax단축메뉴로 변경
+			
+			/*$.ajax({
 				url: "buyerNames.jsp",
 				type: "get",
 				success: function(res) {
@@ -48,8 +61,8 @@ p:hover {
 					alert("상태 : " + xhr.status);
 				},
 				dataType: "json"
-			})
-
+			})*/
+	
 			//bind : 실행 전(기존)에 만들어져있던 요소에 이벤트를 주는것, 대상이 먼저옴
 			//delegate : 실행 전(기존)에 만들어져있던 요소와 실행 이후에 생긴 요소에 이벤트를 주는 것, 대상이 후에 옴
 			//delegate를 사용할때의 사용할 대상의 부모대상이 document자리에 오게끔 해야한다.
@@ -85,7 +98,7 @@ p:hover {
 			
 			$("#names").on("click", "p", function() {
 				idvalue = $(this).attr("id");
-				$.ajax({
+				/*$.ajax({
 					url: "details.jsp",
 					type: "post",
 					data: {"id": idvalue},
@@ -96,7 +109,16 @@ p:hover {
 						alert("상태 : " + xhr.status);
 					},
 					dataType: "html" //html, text
-				})
+				})*/
+				
+				$.post(
+						"details.jsp",
+						{"id": idvalue},
+						function(res) {
+							$("#details").html(res);
+						},
+						"html"
+				)//02.15 ajax단축메뉴로 변경
 			})
 		})	
 	})

@@ -15,7 +15,15 @@
 <script>
 	$(function(){
 		$("input").on("click", function(){
-			$.ajax({
+			$.get(
+					"/lprod/LprodList",
+					function(res){
+						$("#result1").html(res)
+					},
+					"html"
+			)//02.15 ajax단축메뉴로 변경
+			
+			/*$.ajax({
 				url : "/lprod/LprodList",
 				type : "get",
 				success : function(res){
@@ -25,7 +33,7 @@
 					alert("상태 : " + xhr.status);	
 				},
 				dataType : "html"
-			})//ajax끝
+			})//ajax끝*/
 		})//inputclick끝
 	})
 </script>

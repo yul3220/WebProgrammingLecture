@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -8,7 +7,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../css/public.css"/>
 <style>
 </style>
 <script>
@@ -25,6 +23,7 @@
 						code += `<option value='${v.gu}'>${v.nm}</option>`;
 					})
 					$("#lprod").html(code);
+					$("#lprod").trigger("change");
 				},
 				error : function(xhr){
 					alert("상태 : " + xhr.status)
@@ -52,13 +51,16 @@
 						//200에러 : json의 ,나 주석처리나 [, {, ""등이 제대로 안되어있을때 남
 					},
 					success : function(res){
-					
-						code = "";
-						$.each(res, function(i, v){
-							code += "<option value='"+ v.id + "'>"+v.name+"</option>";
-						})
-						
+						if(res.sw=="ok"){
+							code = "";
+							$.each(res.datas, function(i, v){
+								code += "<option value='"+ v.id + "'>"+v.name+"</option>";
+							})
+						}else{
+							code += "<option value='0'>데이터없음</option>";
+						}
 						$("#prod").html(code);
+						$("#prod").trigger("change");
 					}
 				})//#lprod function ajax끝
 			})//lprod change끝
@@ -66,22 +68,51 @@
 			// prod를 change하면 해당 제품의 detail을 출력한다.
 			// 선택한 option의 value값을 가져온다. - val()
 			// queryForObject를 수행
-			$("#prod").on("change", function(){
-				prod_id = $("option:selected",this).val();
-			
+			$('#prod').on('change', function(){
+	
+			  //$('#prod option:selected')
+				prod_id = $('option:selected', this).val();
+				if(prod_id == 0){
+					$('#detail').empty();
+					
+					// 데이터 없는 경우 이미지(img)를 출력
+					$("<img>", {
+						'src' : '../images/spongebob.png',
+						'width' : '100px',
+						'height' : '100px'
+					}).appendTo($('#detail'));
+					
+					return false;	// return false를 해야 밑 코드가 실행되지 않는다.
+					
+				}
 				$.ajax({
-					url : "prodDetail.jsp",
-					type : "post",
-					data : {"id": prod_id},
+					url : 'prodDetail.jsp',
+					type : 'post',
+					data : {"id" : prod_id},
 					success : function(res){
-						$("#detail").html(res);
+						
+						code = "<table class='table table-striped' border='1'";
+						code += "<tr><td>항목</td><td>내용</td></tr>";
+						code += "<tr><td>PROD_ID</td><td>" + res.id + "</td></tr>";
+						code += "<tr><td>PROD_NAME</td><td>" + res.name + "</td></tr>";
+						code += "<tr><td>PROD_LGU</td><td>" + res.lgu + "</td></tr>";
+						code += "<tr><td>PROD_BUYER</td><td>" + res.buyer + "</td></tr>";
+						code += "<tr><td>PROD_COST</td><td>" + res.cost + "</td></tr>";
+						code += "<tr><td>PROD_PRICE</td><td>" + res.price + "</td></tr>";
+						code += "<tr><td>PROD_SALE</td><td>" + res.sale + "</td></tr>";
+						code += "<tr><td>PROD_OUTLINE</td><td>" + res.outline + "</td></tr>";
+						code += "<tr><td>PROD_DETAIL</td><td>" + res.detail + "</td></tr>";
+						code += "</table>";
+						
+						$('#detail').html(code);
+						
 					},
 					error : function(xhr){
-						alert("상태 : " + xhr.status);
+						alert('상태 : ' + xhr.status);
 					},
-					dataType : "html"
+					dataType : 'json'
 				})
-			})//prod change끝
+			})
 		})//input click끝
 	})//function끝
 </script>
@@ -102,8 +133,6 @@
 				<label for="prod">상품명</label>
 				<select class="form-control" id="prod">
 				</select>
-				
-				
 			</div>
 		</form>
 	</div>

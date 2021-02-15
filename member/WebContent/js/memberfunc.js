@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 function idcheck(){
 		idvalue = $("#id").val().trim();
 		
@@ -10,7 +6,7 @@ function idcheck(){
 			return false;
 		}
 		
-		$.ajax({
+		/*$.ajax({
 			//project이름의 member는 context Root
 			url : '/member/ID.do',
 			type : "post",
@@ -22,7 +18,16 @@ function idcheck(){
 				alert("상태 : " +  xhr.status);
 			},
 			dataType : "json"
-		})
+		})*/
+		
+		$.post(
+				'/member/ID.do',
+				{"id": idvalue},
+				function(res){
+					$("#idspan").html(res.sw).css("color", "red");
+				},
+				"json"
+		)//02.15 ajax단축메뉴로 변경
 	}//idbtn클릭
   	
   	// 우편번호 modal에서 동 입력후 확인버튼 클릭 이벤트

@@ -1,25 +1,3 @@
 INDEX VERSION 1.131
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3149179679.index
-\prod\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3626267640.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2938323822.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1178658395.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3195795894.index
-\lprod\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1724066615.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1233708052.index
-\webpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1049613442.index
-\webpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\826791629.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3799161058.index
-\member\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\14863846.index
-\jqpro\src
-D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1093476930.index
-\jqpro\src
+D:\A_TeachingMaterial\5.JQuery\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3767837101.index
+\board\src
