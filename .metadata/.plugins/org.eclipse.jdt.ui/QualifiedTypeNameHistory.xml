@@ -27,9 +27,9 @@
 <fullyQualifiedTypeName name="com.ibatis.sqlmap.client.SqlMapClient"/>
 <fullyQualifiedTypeName name="kr.or.ddit.ibatis.config.SqlMapClientFactory"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.dao.IBoardDao"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.dao.BoardDaoImpl"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>

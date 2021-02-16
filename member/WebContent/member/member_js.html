@@ -4,15 +4,18 @@
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="../js/jquery.serializejson.min.js"></script>
 <script src="../js/memberfunc.js"></script>
 <style>
-	.ziptr:hover{
-		background : crimson;
-	}
+.ziptr:hover {
+	background: crimson;
+}
 </style>
 <script>
 	$(function(){
@@ -21,7 +24,16 @@
 		$('#id').on('keyup', function(){
            
            idvalue = $('#id').val().trim();
-         
+         	
+           if(idvalue == "" || idvalue == null){
+		         nopro(this, "아이디를 입력해주세요!");
+		         return;
+		   }
+           
+           if(idvalue.length <4 || idvalue.length >12){
+       			nopro(this, "아이디는 4~12자리 입니다.");
+       			return false;
+       	 	}
            //형식
            regid = /^[a-z][a-zA-Z0-9]{3,11}$/;
               
@@ -37,8 +49,13 @@
         $("#name").on("keyup", function(){
         	namevalue = $("#name").val().trim();
         	
+        	if(namevalue == "" || namevalue == null){
+   	         	nopro(this, "이름을 입력해주세요!");
+   	     	 	return;
+   	      	}
+        	
         	if(namevalue.length <2 || namevalue.length >5){
-        		nopro(this, "2~5사이입니다.");
+        		nopro(this, "이름은 2~5글자 사이입니다.");
         		return false;
         	}
         	
@@ -56,6 +73,11 @@
         	
         	reghp = /\d{3}-\d{4}-\d{4}/;
         	
+        	if(hpvalue == "" || hpvalue == null){
+   	         	nopro(this, "전화번호를 입력해주세요!");
+   	      		return;
+   	      	}
+        	
         	if(reghp.test(hpvalue)) {
           	   okpro(this);
              }else{
@@ -68,6 +90,11 @@
         	
         	regemail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}$/;
         	
+        	if(emailvalue == "" || emailvalue == null){
+   	        	 nopro(this, "이메일를 입력해주세요!");
+   	      		return;
+   	        }
+        	
         	if(regemail.test(emailvalue)) {
           	   okpro(this);
              }else{
@@ -78,9 +105,14 @@
         $("#pwd").on("keyup", function(){
         	passvalue = $(this).val().trim();
         	
+        	if(passvalue == "" || passvalue ==null){
+   	         	nopro(this, "비밀번호를 입력해주세요!");
+   	      		return;
+   	      	}
+        	
         	//길이 8-12
         	if (passvalue.length < 8 || passvalue.length > 12) {
-        		nopro(this, "비밀번호는 8~12사이입니다.");
+        		nopro(this, "비밀번호는 8~12글자사이입니다.");
         		return false;
         	}
         	
@@ -97,15 +129,21 @@
         $("#pwd2").on("keyup", function(){
         	pwvalue = $(this).val().trim();
         	
+        	if(passvalue == "" || passvalue ==null){
+      	         nopro(this, "비밀번호를 확인을 위해 입력해주세요!");
+      	       	 return;
+      	    }
+        	
         	if(passvalue == pwvalue){
         		okpro(this);
         	}else{
-        		nopro(this, "일치하지 않습니다.");
+        		nopro(this, "두개의 비밀번호가 일치하지 않습니다!");
         	}
         })
         
         $("#bir").on("change", function(){
         	birvalue = $(this).val();
+        	
         	birday = new Date(birvalue);
         	
         	today = new Date();
@@ -113,7 +151,6 @@
         	biryear = birday.getFullYear();//선택한 년도
         	
         	year = toyear - biryear;
-        	
         	if(year >= 10){
         		okpro(this);
         	}else{
@@ -124,6 +161,11 @@
         $("#gender").on("mouseover", function(){
         	gdvalue = $(this).val();
         	
+        	if(gdvalue == "" || gdvalue == null){
+   	         	nopro(this, "성별를 입력해주세요!");
+   	         	return;
+   	      	}
+        	
         	if(gdvalue=="남자" || gdvalue=="여자"){
         		okpro(this);
         	}else{
@@ -131,7 +173,25 @@
         	}
         })
         
-		// id중복검사
+        $("add1").on("keyup", function(){
+        	add1dvalue = $(this).val();
+        	
+        	if(add1dvalue == "" || add1dvalue == null){
+   	         	nopro(this, "우편번호와 주소를 입력해주세요!");
+   	         	return;
+   	      	}
+        })
+        
+        $("add2").on("keyup", function(){
+        	add2dvalue = $(this).val();
+        	
+        	if(add2dvalue == "" || add2dvalue == null){
+   	         	nopro(this, "상세주소를 입력해주세요!");
+   	        	return;
+   	      	}
+        })
+		
+        // id중복검사
 		$("#idbtn").on("click", function(){
 			idcheck();
 		})
@@ -152,198 +212,183 @@
 			zipselect(this);
 		})
 		
+		$("button[type=submit]").on("click", function(){
+			if($("#bir").val() == "" || $("#bir").val() == null){
+  	         	nopro("#bir", "생년월일를 입력해주세요!");
+  	      		return;
+  	      	}
+		})
+		
 		// 제출버튼 클릭 이벤트
 		$("#ff").on("submit", function(){
-			 if($('#id').val() == ""){
-		         nopro('#id', "id를 입력해주세요!");
-		      }else if($('#name').val() == ""){
-		         nopro('#name', "이름을 입력해주세요!");
-		      }else if($('#hp').val() == ""){
-		         nopro('#hp', "전화번호를 입력해주세요!");
-		      }else if($('#bir').val() == ""){
-		         nopro('#bir', "생년월일를 입력해주세요!");
-		      }else if($('#sel').val() == ""){
-		         nopro('#sel', "성별를 입력해주세요!");
-		      }else if($('#pwd').val() == ""){
-		         nopro('#pwd', "비밀번호를 입력해주세요!");
-		      }else if($('#pwd2').val() == ""){
-		         nopro('#pwd2', "비밀번호를 입력해주세요!");
-		      }else if($('#mail').val() == ""){
-		         nopro('#mail', "이메일를 입력해주세요!");
-		      }else if($('#zip').val() == ""){
-		         nopro('#zip', "우편번호를 입력해주세요!");
-		      }else if($('#add1').val() == ""){
-		         nopro('#add1', "주소를 입력해주세요!");
-		      }
-				
 			  fsubmit();
 		})
 	})
 </script>
 </head>
-<body >
-<div class="container">
-  <h3>회원가입</h3>
-  <br>
-  <form class="form-horizontal" id="ff">
-  	<div class="form-group">
-      <label class="control-label col-sm-2" for="id">아이디</label>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="id" 
-        placeholder="Enter id" name="mem_id">
-      </div>
-      <button class="btn btn-success btn-sm" id="idbtn" type="button">중복검사</button>
-      <span class="sp"></span>
-      <span id="idspan"></span>
-      <div class="msg"></div>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="name">이름</label>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="name" 
-        placeholder="Enter name" name="mem_name">
-     	 <div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="hp">전화번호</label>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="hp" 
-        placeholder="Enter hp" name="mem_hp">
-        <div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="bir">생년월일</label>
-      <div class="col-sm-3">
-        <input type="date" class="form-control" id="bir" 
-        placeholder="Enter bir" name="mem_bir">
-        <div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">이메일</label>
-      <div class="col-sm-3">
-        <input type="email" class="form-control" id="email"
-         placeholder="Enter email" name="mem_mail">
-         <div class="msg"></div>
-      </div>
-       <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">비밀번호</label>
-      <div class="col-sm-3">          
-        <input type="text" class="form-control" id="pwd" 
-        placeholder="Enter password">
-        <div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">비밀번호확인</label>
-      <div class="col-sm-3">          
-        <input type="text" class="form-control" id="pwd2" 
-        placeholder="Enter password" name="mem_pass">
-        <div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2">성별</label>
-      <div class="col-sm-3">          
-      	<select class="form-control" id="gender">
-      		<option disabled b selected>선택</option>
-      		<option value="남자">남자</option>
-      		<option value="여자">여자</option>
-      	</select>
-      	<div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="zip">우편번호</label>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="zip" 
-        placeholder="Enter zip" name="mem_zip">
-      </div>
-      <button class="btn btn-warning btn-sm" id="wzipbtn" type="button">번호검색(window)</button>
-      <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" 
-      id="mzipbtn" type="button">번호검색(modal)</button>
-      <div class="msg"></div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="add1">주소</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control" id="add1" 
-        placeholder="Enter add1" name="mem_add1">
-     	<div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="add2">상세주소</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control" id="add2" 
-        placeholder="Enter add2" name="mem_add2">
-      	<div class="msg"></div>
-      </div>
-      <span class="sp"></span>
-    </div>
-    
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label><input type="checkbox" name="remember"> Remember me</label>
-        </div>
-      </div>
-    </div>
-    
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        <button type="reset" class="btn btn-danger btn-lg">초기화</button>
-        <span id="submit"></span>
-      </div>
-    </div>
-  </form>
-</div>
+<body>
+	<div class="container">
+		<h3>회원가입</h3>
+		<br>
+		<form class="form-horizontal" id="ff">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="id">아이디</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="id"
+						placeholder="Enter id" name="mem_id">
+				</div>
+				<button class="btn btn-warning btn-sm" id="idbtn" type="button">중복검사</button>
+				<span class="sp"></span> <span id="idspan"></span>
+				<div class="msg"></div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">이름</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name"
+						placeholder="Enter name" name="mem_name">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="hp">전화번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="hp"
+						placeholder="Enter hp" name="mem_hp">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="bir">생년월일</label>
+				<div class="col-sm-3">
+					<input type="date" class="form-control" id="bir"
+						placeholder="Enter bir" name="mem_bir">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">이메일</label>
+				<div class="col-sm-3">
+					<input type="email" class="form-control" id="email"
+						placeholder="Enter email" name="mem_mail">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">비밀번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="pwd"
+						placeholder="Enter password">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">비밀번호확인</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="pwd2"
+						placeholder="Enter password" name="mem_pass">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2">성별</label>
+				<div class="col-sm-3">
+					<select class="form-control" id="gender">
+						<option disabled b selected>선택</option>
+						<option value="남자">남자</option>
+						<option value="여자">여자</option>
+					</select>
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="zip">우편번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="zip"
+						placeholder="Enter zip" name="mem_zip">
+				</div>
+				<button class="btn btn-info btn-sm" id="wzipbtn" type="button">번호검색(window)</button>
+				<button class="btn btn-info btn-sm" data-toggle="modal"
+					data-target="#myModal" id="mzipbtn" type="button">번호검색(modal)</button>
+				<div class="msg"></div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="add1">주소</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="add1"
+						placeholder="Enter add1" name="mem_add1">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="add2">상세주소</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="add2"
+						placeholder="Enter add2" name="mem_add2">
+					<div class="msg"></div>
+				</div>
+				<span class="sp"></span>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label><input type="checkbox" name="remember">
+							Remember me</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success btn-lg">Submit</button>
+					<button type="reset" class="btn btn-danger btn-lg">초기화</button>
+					<span id="submit"></span>
+				</div>
+			</div>
+		</form>
+	</div>
 
 	<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-         	<input type="text" id="dong"/>
-    		<input type="button" id="dongbtn" value="확인"/>
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
 
-    		<div id="result1"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">우편번호찾기</h4>
+				</div>
+				<div class="modal-body">
+					<p>찾고자 하는 동을 입력해주세요.</p>
+					<input type="text" id="dong" /> <input type="button" id="dongbtn"
+						value="확인" />
+
+					<div id="result1"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

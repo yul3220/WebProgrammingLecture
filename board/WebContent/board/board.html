@@ -3,49 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="../js/board.js"></script>
- <style>
- p{
-   box-sizing : border-box;
- }
- .p1{
-   width : 80%;
-   float : left;
- }
- 
- .p2{
-   width : 20%;
-   float : right ;
- }
- .p3{
-   clear : both;
- }
- 
- button[name=reply]{
-   height : 45px;
-   vertical-align: top;
- }
- 
- .panel-heading:hover{
-    background : lightblue;
- }
- </style>
-
+<style>
+    body{
+    	margin: 10px;
+    }
+    p{
+        box-sizing: border-box;
+    }
+    .p1{
+        width: 80%;
+        float: left;
+    }
+    .p2{
+        width: 20%;
+        float : right;
+    }
+    .p3{
+        clear: both;
+    }
+    button[name=reply]{
+        height: 45px;
+        vertical-align: top;
+    }
+    .panel-heading:hover{
+        background: #c0fdff
+    }
+    .pager{
+    	width : 150px;
+    	float: left;
+    	margin: 5px;
+    }
+</style>
 <script>
-$(function(){
-	readServer();
-})
-
+	$(function(){
+		//readServer();
+		readPageServer(2);
+	});
 </script>
 </head>
 <body>
-
-<div class="box">
-
-</div>
+​<h2>게시판</h2>
+<br>
+	<div class="box">
+	</div>
+	<br><br>
+	
+	<div id="pagelist"></div>
 </body>
 </html>
