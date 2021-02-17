@@ -44,4 +44,19 @@ public class BoardDaoImpl implements IBoardDao {
 		return (Integer) client.queryForObject("board.listCount");
 	}
 
+	@Override
+	public int insertBoard(BoardVO vo) throws SQLException {
+		return (int) client.insert("board.insertBoard", vo);
+	}
+
+	@Override
+	public int updateBoard(BoardVO vo) throws SQLException {
+		return 0;
+	}
+
+	@Override
+	public int deleteBoard(int num) throws SQLException {
+		return client.delete("board.deleteBoard", num);
+	}
+
 }

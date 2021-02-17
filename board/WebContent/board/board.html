@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="../js/board.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
+<script src="../js/board.js"></script>
 <style>
     body{
     	margin: 10px;
@@ -34,25 +35,120 @@
         background: #c0fdff
     }
     .pager{
-    	width : 150px;
+    	width : 140px;
     	float: left;
     	margin: 5px;
+    }
+    .pul{
+    	margin-left : 20%;
+    }
+    label{
+    	display : inline-block;
+    	width : 100px;
+    	height : 20px;
     }
 </style>
 <script>
 	$(function(){
 		//readServer();
-		readPageServer(2);
-	});
+		readPageServer(1);
+		
+		// 페이지번호, 이전, 다음 버튼 클릭에 대한 이벤트
+		$("#pagelist").on("click",".paging", function(){
+			currentPage = $(this).text();//class active => 파란색 값이 바뀌는것
+			//readPageServer($(this).text());
+			readPageServer(currentPage);
+			//숫자를 나타내는 곳은 for문을 돌고있는 상태
+		})
+		
+		// 다음 버튼 클릭
+		$("#pagelist").on("click", ".next", function(){
+			currentPage = parseInt($(".paging").last().text())+1;//문자이기때문에 형변환후 더하기
+			readPageServer(currentPage);
+		})
+		
+		// 이전 버튼 클릭
+		$("#pagelist").on("click", ".prev", function(){
+			currentPage = parseInt($(".paging").first().text())-1;
+			readPageServer(currentPage);
+		})
+		
+		// 각 버튼에 대한 이벤트
+		$(".box").on("click", ".action", function(){
+			vname = $(this).attr("name");
+			vidx = $(this).attr("idx");
+			
+			if(vname == "modify"){
+				alert(vidx+"번글을 수정합니다.");
+			}else if(vname=="delete"){
+				//alert(vidx+"번글을 삭제합니다.");
+				deleteBoard(vidx);
+			}else if(vname=="reply"){
+				alert(vidx+"번글을 댓글을 답니다.");
+			}
+		})
+		
+		// 글쓰기 전송버튼 
+		$("#wsend").on("click", function(){
+			insertBoard();
+			
+			//비동기이기때문에 함수가 실행되고 진행될지 실행되지 않고 실행되지 모른다.
+			//성공할때 진행되게 하기 위해서 js의 insertBoard의 success부분에 코드 작성
+			//$("#writeModal").modal("hide");
+			//$(".txt").val("");
+			//content의 내용의 엔터를 사용하면 후에 200번의 에러가 남
+			//가져올때는 엔터 부분을 <br>로 바꾸어주어야함
+			//readPageServer(1); => 동기(요청과 응답이 1:1)
+		})
+		
+		
+	});//function끝
 </script>
 </head>
 <body>
-​<h2>게시판</h2>
-<br>
-	<div class="box">
-	</div>
-	<br><br>
-	
-	<div id="pagelist"></div>
+   <h2>게시판</h2>
+   <br>
+   <br>
+   <button class="btn btn-success" data-toggle="modal" data-target="#writeModal" type="button">글쓰기</button>
+   <br><br>
+   
+   
+   <div class="box">
+   </div>
+   <br><br>
+   <div id="pagelist"></div>
+   <!-- Modal -->
+<div id="writeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">게시판 글 작성</h4>
+      </div>
+      <div class="modal-body">
+        <form id="wform">
+           <label>제목</label>
+           <input class ="txt" name="subject"/><br><!-- input type을 생략하면 자동적으로 text이다. -->
+           <label>작성자</label>
+           <input class ="txt" name="writer"/><br>
+           <label>메일</label>
+           <input class ="txt" name="mail"/><br>
+           <label>비밀번호</label>
+           <input class ="txt" type="password" name="password"/><br>
+           <label>내용</label><br>
+           <textarea class ="txt" rows="10" cols="50" name="content"></textarea>
+           <br>
+           <button class="btn btn-primary" id="wsend" type="button">전송</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

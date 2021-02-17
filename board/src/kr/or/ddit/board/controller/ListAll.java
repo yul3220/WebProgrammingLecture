@@ -55,7 +55,7 @@ public class ListAll extends HttpServlet {
 		int totalCount = service.listCount();
 		
 		// 한페이지에 출력할 글갯수 - 3
-		int perList = 3;
+		int perList = 5;
 		
 		// 한 화면에 출력할 페이지수 - 3
 		int perPage = 3;

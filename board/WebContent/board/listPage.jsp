@@ -23,7 +23,8 @@
 				"num" : "<%= vo.getNum() %>",
 				"subject" : "<%= vo.getSubject() %>",
 				"writer" : "<%= vo.getWriter() %>",
-				"cont" : "<%= vo.getContent() %>",
+				"cont" : "<%= vo.getContent().replaceAll("\r", "")
+				.replaceAll("\n", "<br>")%>",
 				"hit" : "<%= vo.getHit() %>",
 				"date" : "<%= vo.getWdate() %>",
 				"mail" : "<%= vo.getMail() %>",

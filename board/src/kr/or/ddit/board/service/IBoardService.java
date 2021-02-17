@@ -1,5 +1,6 @@
 package kr.or.ddit.board.service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import kr.or.ddit.board.vo.BoardVO;
@@ -13,10 +14,13 @@ public interface IBoardService {
 	public List<BoardVO> selectByPage(Map<String, Integer> map);
 	
 	//게시글 저장하기 
+	public int insertBoard(BoardVO vo); 
 	
 	//게시글 수정하기 
+	public int updateBoard(BoardVO vo);
 	
 	//게시글 삭제하기 
+	public int deleteBoard(int num);
 	
 	//댓글 저장 
 	
