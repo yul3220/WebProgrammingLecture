@@ -73,18 +73,51 @@
 			readPageServer(currentPage);
 		})
 		
-		// 각 버튼에 대한 이벤트
+		// 각 버튼에 대한 이벤트, 리스트 제목줄 클릭이벤트
 		$(".box").on("click", ".action", function(){
 			vname = $(this).attr("name");
 			vidx = $(this).attr("idx");
 			
 			if(vname == "modify"){
-				alert(vidx+"번글을 수정합니다.");
+				//alert(vidx+"번글을 수정합니다.");
+				//data-toggle="modal" data-target="#modiModal" => board.js에 있는 버튼에 작성해도 됨
+				// 모달창 띄우기
+				$("#modiModal").modal("show");
+				
+				// 모달창에 수정할 내용을 출력
+				parent = $(this).parents('.panel');
+	            title  = $(parent).find('a').text();
+	            writer = $(parent).find('.wr').text();
+	            mail   = $(parent).find('.wm').text();
+	            cont   = $(parent).find('.wc').html();
+	            num    = vidx;
+	            
+	            cont = cont.replace(/<br>/g, "\n");
+	            
+	            $('#mform #subject').val(title);
+	            $('#mform #writer').val(writer);
+	            $('#mform #mail').val(mail);
+				$('#mform #num').val(num);
+	            $('#mform #content').val(cont);
+	            
 			}else if(vname=="delete"){
 				//alert(vidx+"번글을 삭제합니다.");
-				deleteBoard(vidx);
+				deleteBoard(this);
 			}else if(vname=="reply"){
 				alert(vidx+"번글을 댓글을 답니다.");
+			}else if(vname=="list"){
+				//alert(vidx+"번글의 조회수 증가와 댓글목록");
+				vclass = $(this).parents(".panel").find(".in").attr("class");
+				console.log(vclass);
+				
+				// vclass가 undefined일때 조회수증가
+				//panel-collapse collapse in=> 창닫힌거
+				//누른다음에 출력되기 때문에
+				// undefined는 값이 정해지지 않은 자료형 - 비교시 typeof를 사용
+				if(typeof vclass == "undefined"){
+					// 조회수 증가
+					readHitServer(this);
+				}
 			}
 		})
 		
@@ -101,7 +134,14 @@
 			//readPageServer(1); => 동기(요청과 응답이 1:1)
 		})
 		
-		
+		// 수정 전송버튼
+		$("#msend").on("click", function(){
+			updateBoard();
+			// updateBoard()함수에서 수정 버튼이 필요하다.
+			// 수정버튼 이용하여 조상(.panel)을 검색하여 
+			// parent 변수에 저장
+			// parent는 전역변수다.
+		})
 	});//function끝
 </script>
 </head>
@@ -141,6 +181,44 @@
            <textarea class ="txt" rows="10" cols="50" name="content"></textarea>
            <br>
            <button class="btn btn-primary" id="wsend" type="button">전송</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <!-- Modal -->
+<div id="modiModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">게시판 글 수정</h4>
+      </div>
+      <div class="modal-body">
+        <form id="mform">
+           <input type="hidden" id="num" name="num">
+           <!--hidden을 통해 게시판의 번호는 숨기고있지만 where절에서 중요한 역할
+           / 비밀번호가져오고싶으면 hidden을 통해서 가져와야 함
+           /name속성 VO나 DB와 일치해야 한다.-->
+           <label>제목</label>
+           <input class ="txt" id="subject" name="subject"/><br>
+           <label>작성자</label>
+           <input class ="txt" id="writer" name="writer"/><br>
+           <label>메일</label>
+           <input class ="txt" id="mail" name="mail"/><br>
+           <label>비밀번호</label>
+           <input class ="txt" type="password" id="password" name="password"/><br>
+           <label>내용</label><br>
+           <textarea class ="txt" rows="10" cols="50" id="content" name="content"></textarea>
+           <br>
+           <button class="btn btn-primary" id="msend" type="button">전송</button>
         </form>
       </div>
       <div class="modal-footer">

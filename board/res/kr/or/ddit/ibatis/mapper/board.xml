@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE sqlMap
 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
@@ -39,4 +38,13 @@
    <delete id="deleteBoard" parameterClass="int">
    		delete from board1 where num=#data#
    </delete>
+   
+   <update id="updateBoard" parameterClass="boardVO">
+   		update board1
+   		set subject = #subject#,
+   			mail = #mail#,
+   			password = #password#,
+   			content = #content#
+   		where num = #num#
+   </update>
 </sqlMap>

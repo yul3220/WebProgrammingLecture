@@ -82,8 +82,15 @@ public class BoardServiceImpl implements IBoardService {
 
 	@Override
 	public int updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = 0;
+		
+		try {
+			cnt = dao.updateBoard(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
 	}
 
 	@Override
@@ -98,7 +105,3 @@ public class BoardServiceImpl implements IBoardService {
 		return cnt;
 	}
 }
-
-
-
-

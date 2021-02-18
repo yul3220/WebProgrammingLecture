@@ -51,7 +51,7 @@ public class BoardDaoImpl implements IBoardDao {
 
 	@Override
 	public int updateBoard(BoardVO vo) throws SQLException {
-		return 0;
+		return client.update("board.updateBoard", vo);
 	}
 
 	@Override
