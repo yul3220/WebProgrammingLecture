@@ -1,7 +1,54 @@
 currentPage = 1;//02.16
 
-readHitServer = function(list){//02.18
+replySaveServer = function(but){//02.19
+    $.ajax({
+     url : '/board/InsertReply.do',
+     type : 'post',
+     data : board, //board객체 - bonum, name, cont
+     dataType : 'json',
+     success : function(res){
+        //alert(res.sw);
+     
+    	// 댓글 등록 후 출력
+    	replyListServer(but);
+     },
+     error : function(xhr){
+        alert("상태 : " + xhr.status)
+     }
+    })
+};
 
+replyListServer = function(but){//02.19
+	$.ajax({
+		url : '/board/ListReply.do',
+		type : "get",
+		data : {"bonum" : vidx},
+		success : function(res){
+			alert("성공");
+		},
+		error : function(xhr){
+			 alert("상태 : " + xhr.status)
+		},
+		dataType : "json"
+		
+	})
+}
+
+readHitServer = function(list){//02.18 && 02.19
+	$.ajax({
+		url : "/board/UpdateHit.do",
+		data : {"num" : vidx},
+		method : "get",
+		success : function(res){
+			parent = $(list).parents(".panel");
+			hit = parseInt($(parent).find(".wh").text());
+			$(parent).find(".wh").text(++hit);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		dataType : "json"
+	})
 }
 
 updateBoard = function(){//02.18
@@ -88,7 +135,7 @@ readPageServer = function(cpage){//02.16
                 code += '작성자  : <span class="wr">' + v.writer +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '이메일 : <span class="wm">' + v.mail + '</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '날짜 : <span class="wd">' + v.date +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                code += '조회수 : <span class="wh">' + 0;
+                code += '조회수 : <span class="wh">' + v.hit + '</hit>';
                 code += '</p>';
                 code += '<p class="p2">';
                 code += '<button idx="'+v.num+'" type="button" name="modify" class="action">수정</button>';
@@ -169,7 +216,7 @@ readServer = function(){//02.15
                 code += '작성자 : ' + v.writer +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '이메일 : ' + v.mail + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '날짜 : ' + v.date +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                code += '조회수 : ' + 0;
+                code += '조회수 : ' + v.hit;
                 code += '</p>';
                 code += '<p class="p2">';
                 code += '<button type="button" name="modify" class="action">수정</button>';

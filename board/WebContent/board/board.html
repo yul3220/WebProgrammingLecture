@@ -49,6 +49,8 @@
     }
 </style>
 <script>
+	//객체 생성 - 속성과 메소드를 동적으로 추가해서 사용할 수 있다.
+	board={}; 
 	$(function(){
 		//readServer();
 		readPageServer(1);
@@ -104,7 +106,23 @@
 				//alert(vidx+"번글을 삭제합니다.");
 				deleteBoard(this);
 			}else if(vname=="reply"){
-				alert(vidx+"번글을 댓글을 답니다.");
+				//alert(vidx+"번글을 댓글을 답니다.");
+				//p4의 자식이다. 그래서 바로 위의 부모이기때문에 parent를 사용한다.textarea를 next()나 
+				//앞의 형제노드를 가져오기에는 <br>이나 다른것이 있으면 형제노드를 간주하기때문에 위험하다.
+				cont = $(this).parent(".p4").find('textarea').val();
+				
+				name1 = String.fromCharCode(Math.floor(Math.random()*26+97));//97~122=>소문자
+				name2 = String.fromCharCode(Math.floor(Math.random()*26+65));//65~90=>대문자
+				name3 = Math.floor(Math.random()*50+20);//20~69
+				console.log(name1 + name2 + name3);
+				// 서버로 요청하기 위해서 보낼 데이터 - bonum, cont, name
+				//var rect={}로 선언해도 후에 동적으로 추가해서 사용가능
+				board.bonum = vidx;
+				board.cont = cont;
+				board.name = name1 + name2 + name3;
+				
+				replySaveServer(this);
+				
 			}else if(vname=="list"){
 				//alert(vidx+"번글의 조회수 증가와 댓글목록");
 				vclass = $(this).parents(".panel").find(".in").attr("class");

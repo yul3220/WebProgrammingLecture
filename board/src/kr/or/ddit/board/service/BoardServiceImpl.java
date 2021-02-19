@@ -6,6 +6,7 @@ import java.util.Map;
 import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.dao.IBoardDao;
 import kr.or.ddit.board.vo.BoardVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 /*
  * dao 객체 얻어오기 - 생성자 
@@ -103,5 +104,44 @@ public class BoardServiceImpl implements IBoardService {
 			e.printStackTrace();
 		}
 		return cnt;
+	}
+
+	@Override
+	public int updateHit(int num) {
+		int cnt = 0;
+		
+		try {
+			cnt = dao.updateHit(num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public int insertReply(ReplyVO vo) {
+		int renum = 0;
+		
+		try {
+			renum = dao.insertReply(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return renum;
+	}
+
+	@Override
+	public List<ReplyVO> listReply(int bonum) {
+		List<ReplyVO> list = null;
+		
+		try {
+			list = dao.listReply(bonum);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }
