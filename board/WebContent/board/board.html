@@ -47,6 +47,15 @@
     	width : 100px;
     	height : 20px;
     }
+    .rep{
+    	margin : 5px;
+    	padding : 10px;
+    	background : #C2F8F4;
+    	border : 1px solid gray;
+    }
+    #modifyForm{
+    	display : none;
+    }
 </style>
 <script>
 	//객체 생성 - 속성과 메소드를 동적으로 추가해서 사용할 수 있다.
@@ -136,6 +145,41 @@
 					// 조회수 증가
 					readHitServer(this);
 				}
+				replyListServer(this);
+			}else if(vname == "rdelete"){
+				deleteReply(this);
+			}else if(vname == "rmodify"){
+				//alert("댓글 수정");
+				$(this).prop("disabled", true);
+				
+				if($("#modifyForm").css("display") != "none"){
+					// 현재 어딘가에 열려있다 == 보이고 있다
+					
+					// modifyForm의 textarea의 내용을 가져온다.
+					// 원래 span class="cont"에 다시 출력해주고 modifyForm을 body로 append()한다.
+					replyReset();// 현재 어딘가에 열려있는 폼을 닫고
+					// 원래 내용으로 다시 돌아간다.
+				}
+					// 현재 닫혀있는 상태 - 안보이는 상태
+					
+					// 원래 내용(수정할 내용) 가져오기
+					modifycont = $(this).parents(".rep").find(".cont").html();
+					
+					// br태그를 \n으로 변경
+					modifycont = modifycont.replace(/<br>/g, "\n");
+					
+					// modifyForm
+					$("#modifyForm > textarea").val(modifycont);
+					
+					// modifyForm보이기
+					//틀안에 있는 내용만 지우고, 안에다가 폼만 집어넣는것
+					//modifyForm은 새롭게 만드는 것이 아닌, body에 만들어져 
+					//있는것이기 때문에 append를 사용하면 잘라내기, 붙여넣기의 느낌이다.
+					//empty랑 append를 한꺼번에 붙여서 적어도 상관없다.
+					$(this).parents(".rep").find(".cont").empty();
+					$(this).parents(".rep").find(".cont").append($("#modifyForm"));
+					//기존에 잘라서 붙여넣기를 하기때문에 처음 댓글수정을 열고 다른 댓글수정을 열면 전에 열려져있던것의 내용이 사라진다.
+					$("#modifyForm").show();//숨겨놓았기때문에 다시 보이게끔 설정
 			}
 		})
 		
@@ -160,10 +204,32 @@
 			// parent 변수에 저장
 			// parent는 전역변수다.
 		})
+		
+		// 열려 있는 수정폼 닫기
+		replyReset = function(){//02.22
+			spancont = $("#modifyForm").parent(); // span태그(원래 댓글의 내용을 가지고 있는 태그)
+			
+			// 수정폼을 다시 body로 appned - 잘라서 붙여넣기 한다.
+			//$('body').append("#modifyForm");
+			$("#modifyForm").hide();
+			
+			// 원래 내용을 가져와서 수정폼에 출력하기 위해서 
+			// br태그를 \n으로 바꾼적이 있는 것을 다시 span태그로
+			// 출력하기 위해서 \n을 다시 br태그로 바꾼다.
+			modifycont = modifycont.replace(/\n/g, "<br>");
+			
+			$(spancont).append(modifycont);// 원래 span에 있었던 글내용
+		}
 	});//function끝
 </script>
 </head>
 <body>
+   <!-- 댓글 수정 폼 -->
+   <div id="modifyForm">
+   		<textarea rows="5" cols="30"></textarea>
+   		<input type="button" value="확인" id="modiok"/>
+   		<input type="button" value="취소" id="modireset"/>
+   </div>
    <h2>게시판</h2>
    <br>
    <br>
@@ -243,7 +309,6 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
 </body>

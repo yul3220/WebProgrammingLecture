@@ -1,5 +1,23 @@
 currentPage = 1;//02.16
 
+deleteReply = function(but){//02.22
+	$.ajax({
+		url : "/board/DeleteReply.do",
+		type : "get",
+		data : {"renum" : vidx},
+		success : function(res){
+			//alert(res.sw);
+			$(but).parents(".rep").remove();
+		},
+		error : function(xhr){
+			 alert("상태 : " + xhr.status);
+		},
+		dataType : "json"
+	})
+}
+
+
+
 replySaveServer = function(but){//02.19
     $.ajax({
      url : '/board/InsertReply.do',
@@ -13,18 +31,38 @@ replySaveServer = function(but){//02.19
     	replyListServer(but);
      },
      error : function(xhr){
-        alert("상태 : " + xhr.status)
+        alert("상태 : " + xhr.status);
      }
     })
 };
 
+// 등록 버튼 클릭, 제목 클릭 할때
 replyListServer = function(but){//02.19
 	$.ajax({
 		url : '/board/ListReply.do',
 		type : "get",
 		data : {"bonum" : vidx},
 		success : function(res){
-			alert("성공");
+			//alert("성공");
+			recode = "";
+			$.each(res, function(i, v){
+				recode += '<div class="panel-body rep">';
+                recode += '<p class="p1">';
+                recode += 	v.name +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                recode += 	v.redate +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                recode += 	"<br><br><span class='cont'>" + v.cont + "</span>";
+                recode += '</p>';
+                recode += '<p class="p2">';
+                recode += 	'<button idx="'+v.renum+'" type="button" name="rmodify" class="action">댓글수정</button>';
+                recode += 	'<button idx="'+v.renum+'" type="button" name="rdelete" class="action">댓글삭제</button>';
+                recode += '</p>';
+                recode += "</div>";
+			})
+			//새롭게 만든 내용을 없애기 위해서는 remove를 사용해야 한다.
+			//$(but).parents(".panel").find(".rep").remove();
+			$(but).parents(".panel").find(".pbody").find(".rep").remove();
+			//remove를 하지 않으면 전에 있던 내용도 다시 불러와진다.
+			$(but).parents(".panel").find(".pbody").append(recode);
 		},
 		error : function(xhr){
 			 alert("상태 : " + xhr.status)
@@ -58,7 +96,6 @@ updateBoard = function(){//02.18
 		method : "post",
 		success : function(res){
 			//alert(res.sw);
-			console.log(res.sw);
 			
 			// 화면에서 수정한 값 출력 - 
 			//parent는 board.html에서 전역변수로 선언했기때문에 board.js에서 사용가능하다.
@@ -130,7 +167,7 @@ readPageServer = function(cpage){//02.16
                 code += '</h4>';
                 code += '</div>';
                 code += '<div id="collapse'+ v.num +'" class="panel-collapse collapse">';
-                code += '<div class="panel-body">';
+                code += '<div class="panel-body pbody">';
                 code += '<p class="p1">';
                 code += '작성자  : <span class="wr">' + v.writer +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '이메일 : <span class="wm">' + v.mail + '</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';

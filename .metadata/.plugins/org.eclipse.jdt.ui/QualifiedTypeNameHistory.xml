@@ -30,10 +30,10 @@
 <fullyQualifiedTypeName name="kr.or.ddit.board.dao.BoardDaoImpl"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.vo.BoardVO"/>
 <fullyQualifiedTypeName name="com.ibatis.sqlmap.client.SqlMapException"/>
-<fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
-<fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.controller.InsertReply"/>
 <fullyQualifiedTypeName name="kr.or.ddit.board.vo.ReplyVO"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
 </qualifiedTypeNameHistroy>

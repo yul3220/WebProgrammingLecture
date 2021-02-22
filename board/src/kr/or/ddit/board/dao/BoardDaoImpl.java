@@ -73,4 +73,14 @@ public class BoardDaoImpl implements IBoardDao {
 	public List<ReplyVO> listReply(int bonum) throws SQLException {
 		return client.queryForList("reply.listReply", bonum);
 	}
+
+	@Override
+	public int updateReply(ReplyVO vo) throws SQLException {
+		return client.update("reply.updateReply", vo);
+	}
+
+	@Override
+	public int deleteReply(int renum) throws SQLException {
+		return client.delete("reply.deleteReply", renum);
+	}
 }

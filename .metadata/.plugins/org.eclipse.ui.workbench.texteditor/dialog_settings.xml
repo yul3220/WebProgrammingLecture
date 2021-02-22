@@ -9,20 +9,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="name" key="selection"/>
+		<item value="hover" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="listReply"/>
-			<item value="list"/>
-			<item value="작성자"/>
-			<item value="Modal Header"/>
-			<item value="name"/>
-			<item value="select A.* from ("/>
-			<item value="idcheck"/>
-			<item value="dongsear"/>
+			<item value="#id_search_category_text"/>
+			<item value="hover"/>
+			<item value="cate_list"/>
+			<item value="logo.png"/>
+			<item value="id_search_category_img"/>
+			<item value="breadcrumb__text"/>
+			<item value="blog__item__pic"/>
+			<item value="bread"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&lt;/tr&gt;"/>

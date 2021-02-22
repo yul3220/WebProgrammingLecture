@@ -16,4 +16,14 @@
 	<select id="listReply" parameterClass="int" resultClass="replyVO">
 		select * from reply where bonum = #data#
 	</select>
+	
+	<update id="updateReply" parameterClass="replyVO">
+		update reply
+		set cont=#cont#, redate=sysdate
+		where renum=#renum#
+	</update>
+	
+	<delete id="deleteReply" parameterClass="int">
+		delete from reply where renum = #data#
+	</delete>
 </sqlMap>
