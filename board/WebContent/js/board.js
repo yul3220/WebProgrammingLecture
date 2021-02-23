@@ -1,5 +1,14 @@
 currentPage = 1;//02.16
 
+updateReply = function(){//02.23
+	$.ajax({
+		url : "/board//UpdateReply.do",//contextroot가 board이다.
+		type : "post",
+		data : reply,//reply객체 - cont, renum
+		dataType : "json"
+	})
+}
+
 deleteReply = function(but){//02.22
 	$.ajax({
 		url : "/board/DeleteReply.do",
@@ -15,8 +24,6 @@ deleteReply = function(but){//02.22
 		dataType : "json"
 	})
 }
-
-
 
 replySaveServer = function(but){//02.19
     $.ajax({
@@ -53,8 +60,8 @@ replyListServer = function(but){//02.19
                 recode += 	"<br><br><span class='cont'>" + v.cont + "</span>";
                 recode += '</p>';
                 recode += '<p class="p2">';
-                recode += 	'<button idx="'+v.renum+'" type="button" name="rmodify" class="action">댓글수정</button>';
-                recode += 	'<button idx="'+v.renum+'" type="button" name="rdelete" class="action">댓글삭제</button>';
+                recode += 	'<button id="rmodi" idx="'+v.renum+'" type="button" name="r_modify" class="action">댓글수정</button>';
+                recode += 	'<button idx="'+v.renum+'" type="button" name="r_delete" class="action">댓글삭제</button>';
                 recode += '</p>';
                 recode += "</div>";
 			})
