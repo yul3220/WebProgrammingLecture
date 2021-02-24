@@ -179,7 +179,7 @@ readPageServer = function(cpage){//02.16
                 code += '작성자  : <span class="wr">' + v.writer +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '이메일 : <span class="wm">' + v.mail + '</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 code += '날짜 : <span class="wd">' + v.date +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                code += '조회수 : <span class="wh">' + v.hit + '</hit>';
+                code += '조회수 : <span class="wh">' + v.hit + '</span>';
                 code += '</p>';
                 code += '<p class="p2">';
                 code += '<button idx="'+v.num+'" type="button" name="modify" class="action">수정</button>';

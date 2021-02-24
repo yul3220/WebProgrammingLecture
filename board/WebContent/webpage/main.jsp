@@ -57,6 +57,7 @@
 			submenu = $(".dropdown-menu li a", this).text(); //부메뉴
 			//console.log(menu+submenu);
 			
+			//text로 가져왔기때문에 한줄로 일렬로 나온다.
 			// map()을 이용해서 부메뉴(submenu)를 분리한다.
 			// sub2배열로 생성한다.
 			sub2 = $(".dropdown-menu li a", this).map(function(){
@@ -73,7 +74,40 @@
     		
     		$(".sidenav1").html(code);
 		})
-	})
+		
+		// 왼쪽 메뉴를 클릭힐때 -delegate
+		$(".sidenav1").on("click", ".list-group-item", function(){
+			console.log($(this).attr("class")); //this=>.list-group-item
+			
+			if($(this).attr("class").match("disabled")) return;
+			/*vtext = $(this).text();// 부메뉴의 문자등을 가져온다. 
+			
+			$(".text-left h1").html(vtext);*/
+			
+			proc(this);
+		})
+			
+		//,를 사용하면 두개를 동시에 사용할 수 있다.
+		$(".dropdown-menu li a, #myNavbar .nav li a").on("click", function(){
+			/*vtext = $(this).text();// 부메뉴의 문자등을 가져온다. 
+			
+			$(".text-left h1").html(vtext);*/
+			proc(this);
+
+		})	
+	})//끝
+	
+	function proc(aa){
+		vtext = $(aa).text().trim();// 부메뉴의 문자등을 가져온다. 
+		
+		$(".text-left h1").html(vtext);
+		
+		if(vtext == "자유게시판"){
+			$(".text-left #result").load("../board/board.html");//여기에서 board는 폴더이름이다.
+		}else if(vtext == "회원가입"){
+			$(".text-left #result").load("../member/member.html");//여기에서 board는 폴더이름이다.
+		}
+	}
 </script>
 </head>
 <body>
