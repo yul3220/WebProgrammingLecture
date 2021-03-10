@@ -2,7 +2,7 @@ currentPage = 1;//02.16
 
 updateReply = function(){//02.23
 	$.ajax({
-		url : "/board//UpdateReply.do",//contextroot가 board이다.
+		url : "/board/UpdateReply.do",//contextroot가 board이다.
 		type : "post",
 		data : reply,//reply객체 - cont, renum
 		dataType : "json"
@@ -206,7 +206,6 @@ readPageServer = function(cpage){//02.16
             $("#pagelist").empty();
             if(res.startpage > 1){
             	pager = '<ul class="pul pager">';
-            	pager +=   '<li><a class = "prev" href="#">Previous</a></li>';
             	pager += '</ul>';
             	
             	$("#pagelist").append(pager);
